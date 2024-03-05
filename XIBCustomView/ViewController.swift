@@ -18,17 +18,17 @@ class ViewController: UIViewController {
         
         let firstCustomView = CustomView()
         firstCustomView.label.text = "First CustomView's Label"
-        firstCustomView.contentView.backgroundColor = .green
+        firstCustomView.contentView.backgroundColor = PaletteHelper.pastelYellow.color
         stackView.addArrangedSubview(firstCustomView)
 
         let secondCustomView = CustomView()
         secondCustomView.label.text = "Second CustomView's Label"
-        secondCustomView.contentView.backgroundColor = .blue
+        secondCustomView.contentView.backgroundColor = PaletteHelper.paleLimeGreen.color
         stackView.addArrangedSubview(secondCustomView)
 
         let thirdCustomView = CustomView()
         thirdCustomView.label.text = "Third CustomView's Label"
-        thirdCustomView.contentView.backgroundColor = .yellow
+        thirdCustomView.contentView.backgroundColor = PaletteHelper.limeGreen.color
         stackView.addArrangedSubview(thirdCustomView)
 
     }
