@@ -16,6 +16,11 @@
 		EB01ABD62B95C4FA00506A40 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB01ABD52B95C4FA00506A40 /* CustomView.xib */; };
 		EB01ABD82B95C63F00506A40 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01ABD72B95C63F00506A40 /* CustomView.swift */; };
 		EB56AD9D2B9715D8009C9509 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56AD9C2B9715D8009C9509 /* ColorHelper.swift */; };
+		EB56AD9F2B972E73009C9509 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56AD9E2B972E73009C9509 /* ImageHelper.swift */; };
+		EB56ADA32B975556009C9509 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56ADA22B975556009C9509 /* CustomButtonView.swift */; };
+		EB56ADA52B975568009C9509 /* CustomButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA42B975568009C9509 /* CustomButtonView.xib */; };
+		EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */; };
+		EB56ADA92B9758E1009C9509 /* CustomlogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA82B9758E1009C9509 /* CustomlogoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		EB01ABD52B95C4FA00506A40 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
 		EB01ABD72B95C63F00506A40 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		EB56AD9C2B9715D8009C9509 /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
+		EB56AD9E2B972E73009C9509 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		EB56ADA22B975556009C9509 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
+		EB56ADA42B975568009C9509 /* CustomButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButtonView.xib; sourceTree = "<group>"; };
+		EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogoView.swift; sourceTree = "<group>"; };
+		EB56ADA82B9758E1009C9509 /* CustomlogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomlogoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +72,9 @@
 		EB01ABC02B95C4E200506A40 /* XIBCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				EB56ADAB2B97654D009C9509 /* AppHelper */,
+				EB56ADAA2B97634F009C9509 /* CustomViews */,
 				EB56AD9B2B9715A4009C9509 /* Design System */,
-				EB01ABD52B95C4FA00506A40 /* CustomView.xib */,
-				EB01ABD72B95C63F00506A40 /* CustomView.swift */,
-				EB01ABC12B95C4E200506A40 /* AppDelegate.swift */,
-				EB01ABC32B95C4E200506A40 /* SceneDelegate.swift */,
 				EB01ABC52B95C4E200506A40 /* ViewController.swift */,
 				EB01ABC72B95C4E200506A40 /* Main.storyboard */,
 				EB01ABCA2B95C4E300506A40 /* Assets.xcassets */,
@@ -80,8 +88,31 @@
 			isa = PBXGroup;
 			children = (
 				EB56AD9C2B9715D8009C9509 /* ColorHelper.swift */,
+				EB56AD9E2B972E73009C9509 /* ImageHelper.swift */,
 			);
 			path = "Design System";
+			sourceTree = "<group>";
+		};
+		EB56ADAA2B97634F009C9509 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EB01ABD72B95C63F00506A40 /* CustomView.swift */,
+				EB01ABD52B95C4FA00506A40 /* CustomView.xib */,
+				EB56ADA22B975556009C9509 /* CustomButtonView.swift */,
+				EB56ADA42B975568009C9509 /* CustomButtonView.xib */,
+				EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */,
+				EB56ADA82B9758E1009C9509 /* CustomlogoView.xib */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		EB56ADAB2B97654D009C9509 /* AppHelper */ = {
+			isa = PBXGroup;
+			children = (
+				EB01ABC12B95C4E200506A40 /* AppDelegate.swift */,
+				EB01ABC32B95C4E200506A40 /* SceneDelegate.swift */,
+			);
+			path = AppHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +175,10 @@
 			files = (
 				EB01ABCE2B95C4E300506A40 /* LaunchScreen.storyboard in Resources */,
 				EB01ABD62B95C4FA00506A40 /* CustomView.xib in Resources */,
+				EB56ADA92B9758E1009C9509 /* CustomlogoView.xib in Resources */,
 				EB01ABCB2B95C4E300506A40 /* Assets.xcassets in Resources */,
 				EB01ABC92B95C4E200506A40 /* Main.storyboard in Resources */,
+				EB56ADA52B975568009C9509 /* CustomButtonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,11 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB56ADA32B975556009C9509 /* CustomButtonView.swift in Sources */,
 				EB01ABC62B95C4E200506A40 /* ViewController.swift in Sources */,
 				EB56AD9D2B9715D8009C9509 /* ColorHelper.swift in Sources */,
 				EB01ABD82B95C63F00506A40 /* CustomView.swift in Sources */,
 				EB01ABC22B95C4E200506A40 /* AppDelegate.swift in Sources */,
 				EB01ABC42B95C4E200506A40 /* SceneDelegate.swift in Sources */,
+				EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */,
+				EB56AD9F2B972E73009C9509 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

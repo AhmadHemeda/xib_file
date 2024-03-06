@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomView: UIView {
-
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var label: UILabel!
     

@@ -11,7 +11,10 @@ enum PaletteHelper: String {
     case pastelYellow = "pastelYellow"
     case paleLimeGreen = "paleLimeGreen"
     case limeGreen = "limeGreen"
-    case forestGreen = "fourthColor"
+    case forestGreen = "forestGreen"
+    case darkSlateBlue = "darkSlateBlue"
+    case turquoiseBlue = "turquoiseBlue"
+    case whiteSmoke = "whiteSmoke"
     
     var color: UIColor {
         return UIColor(named: self.rawValue)!
@@ -54,3 +57,11 @@ enum PaletteHelper: String {
 //        return UIColor(named: colorNames[self] ?? "")!
 //    }
 //}
+
+
+/*
+ 
+ 
+ image.imageView = PaletteHelper.whiteSmoke.color
+ 
+ */

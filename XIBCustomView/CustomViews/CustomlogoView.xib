@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomLogoView" customModule="XIBCustomView" customModuleProvider="target">
+            <connections>
+                <outlet property="logoImageView" destination="hNx-Mb-Y6I" id="R6O-lT-Zwj"/>
+                <outlet property="logoLabel" destination="1UF-Bp-oG6" id="Uxp-3n-XgA"/>
+                <outlet property="logoView" destination="iN0-l3-epB" id="XzD-v2-sMZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UF-Bp-oG6">
+                    <rect key="frame" x="8" y="170" width="377" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hNx-Mb-Y6I">
+                    <rect key="frame" x="32" y="32" width="329" height="136"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="hNx-Mb-Y6I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="4eq-OF-adf"/>
+                <constraint firstItem="1UF-Bp-oG6" firstAttribute="top" secondItem="hNx-Mb-Y6I" secondAttribute="bottom" constant="2" id="MzC-yV-Hbl"/>
+                <constraint firstAttribute="trailing" secondItem="1UF-Bp-oG6" secondAttribute="trailing" constant="8" id="YdO-2T-4bZ"/>
+                <constraint firstItem="hNx-Mb-Y6I" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="b0L-vo-qow"/>
+                <constraint firstItem="1UF-Bp-oG6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="eTC-JL-xRJ"/>
+                <constraint firstAttribute="bottom" secondItem="hNx-Mb-Y6I" secondAttribute="bottom" constant="32" id="hG5-W9-btN"/>
+                <constraint firstAttribute="bottom" secondItem="1UF-Bp-oG6" secondAttribute="bottom" constant="8" id="hMz-P3-chj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hNx-Mb-Y6I" secondAttribute="trailing" constant="32" id="l9d-Go-1h8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-98" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cloudyLogo" width="1011" height="841"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

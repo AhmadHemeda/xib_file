@@ -16,21 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cSn-Lw-HHE">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tq5-Zg-dWT">
                                 <rect key="frame" x="16" y="75" width="361" height="727"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cSn-Lw-HHE" secondAttribute="bottom" constant="16" id="6ub-c0-0YU"/>
-                            <constraint firstItem="cSn-Lw-HHE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PQY-JB-Tai"/>
-                            <constraint firstItem="cSn-Lw-HHE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="UjC-p9-gcj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cSn-Lw-HHE" secondAttribute="trailing" constant="16" id="Xi0-v0-xDf"/>
+                            <constraint firstItem="tq5-Zg-dWT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XHT-Lt-0uc"/>
+                            <constraint firstItem="tq5-Zg-dWT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="j4F-Es-lvU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tq5-Zg-dWT" secondAttribute="bottom" constant="16" id="rbq-D1-fQg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tq5-Zg-dWT" secondAttribute="trailing" constant="16" id="xCZ-3g-tNu"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="stackView" destination="cSn-Lw-HHE" id="NTj-ag-SbM"/>
+                        <outlet property="stackView" destination="tq5-Zg-dWT" id="DdY-DY-i9I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
