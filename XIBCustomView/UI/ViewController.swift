@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UtilityLibrary
 
 class ViewController: UIViewController {
     
@@ -38,6 +39,8 @@ class ViewController: UIViewController {
         // Add custom button view
         let customButtonView = CustomButtonView()
         customButtonView.registerButton.setTitle("LOG IN", for: .normal)
+        customButtonView.registerButton.setCornerRadius(50)
+        customButtonView.registerButton.setBorderColor(PaletteHelper.whiteSmoke.color, width: 2)
         customButtonView.registerButtonView.backgroundColor = PaletteHelper.darkSlateBlue.color
         customButtonView.registerButton.backgroundColor = PaletteHelper.turquoiseBlue.color
         customButtonView.registerButton.setTitleColor(PaletteHelper.whiteSmoke.color, for: .normal)

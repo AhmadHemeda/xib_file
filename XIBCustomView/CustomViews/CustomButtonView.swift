@@ -6,41 +6,11 @@
 //
 
 import UIKit
+import UtilityLibrary
 
-class CustomButtonView: UIView {
-    //    static let identifier = "CustomButtonView"
+class CustomButtonView: NibLoadingView {
     
     @IBOutlet var registerButtonView: UIView!
     @IBOutlet weak var registerButton: UIButton!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initSubviews()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initSubviews()
-    }
-    
-    func initSubviews() {
-        
-        Bundle.main.loadNibNamed("CustomButtonView", owner: self, options: nil)
-        
-        registerButtonView.frame = self.bounds
-        registerButtonView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        addSubview(registerButtonView)
-        
-        //        let nib = UINib(nibName: CustomButtonView.identifier, bundle: nil)
-        //
-        //        guard let view = nib.instantiate(withOwner: self, options: nil).first as?
-        //                UIView else {fatalError("Unable to convert nib")}
-        //
-        //        view.frame = bounds
-        //        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //
-        //        addSubview(view)
-        
-    }
 }
