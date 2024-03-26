@@ -21,7 +21,16 @@
 		EB56ADA32B975556009C9509 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56ADA22B975556009C9509 /* CustomButtonView.swift */; };
 		EB56ADA52B975568009C9509 /* CustomButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA42B975568009C9509 /* CustomButtonView.xib */; };
 		EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */; };
-		EB56ADA92B9758E1009C9509 /* CustomlogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA82B9758E1009C9509 /* CustomlogoView.xib */; };
+		EB56ADA92B9758E1009C9509 /* CustomLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */; };
+		EBF48BB12BB2E4A6009CA4E0 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BB02BB2E4A6009CA4E0 /* PostRepository.swift */; };
+		EBF48BB42BB2ED66009CA4E0 /* FetchPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BB32BB2ED66009CA4E0 /* FetchPostsUseCase.swift */; };
+		EBF48BB62BB2EDFF009CA4E0 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BB52BB2EDFF009CA4E0 /* PostsViewModel.swift */; };
+		EBF48BBB2BB2F821009CA4E0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BBA2BB2F821009CA4E0 /* LoginResponse.swift */; };
+		EBF48BC32BB301F8009CA4E0 /* DummyAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC22BB301F8009CA4E0 /* DummyAuthRequest.swift */; };
+		EBF48BC52BB3020A009CA4E0 /* DummyAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC42BB3020A009CA4E0 /* DummyAuthRepository.swift */; };
+		EBF48BC72BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC62BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift */; };
+		EBF48BC92BB3025D009CA4E0 /* DummyAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC82BB3025D009CA4E0 /* DummyAuthViewModel.swift */; };
+		EBF48BCD2BB33163009CA4E0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BCC2BB33163009CA4E0 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +49,16 @@
 		EB56ADA22B975556009C9509 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		EB56ADA42B975568009C9509 /* CustomButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButtonView.xib; sourceTree = "<group>"; };
 		EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogoView.swift; sourceTree = "<group>"; };
-		EB56ADA82B9758E1009C9509 /* CustomlogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomlogoView.xib; sourceTree = "<group>"; };
+		EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLogoView.xib; sourceTree = "<group>"; };
+		EBF48BB02BB2E4A6009CA4E0 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		EBF48BB32BB2ED66009CA4E0 /* FetchPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPostsUseCase.swift; sourceTree = "<group>"; };
+		EBF48BB52BB2EDFF009CA4E0 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		EBF48BBA2BB2F821009CA4E0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		EBF48BC22BB301F8009CA4E0 /* DummyAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthRequest.swift; sourceTree = "<group>"; };
+		EBF48BC42BB3020A009CA4E0 /* DummyAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthRepository.swift; sourceTree = "<group>"; };
+		EBF48BC62BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDummyAuthUseCase.swift; sourceTree = "<group>"; };
+		EBF48BC82BB3025D009CA4E0 /* DummyAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthViewModel.swift; sourceTree = "<group>"; };
+		EBF48BCC2BB33163009CA4E0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +92,7 @@
 		EB01ABC02B95C4E200506A40 /* XIBCustomView */ = {
 			isa = PBXGroup;
 			children = (
-				EB2567062BA0B3410002CD56 /* UI */,
+				EBF48BA72BB2E428009CA4E0 /* Scene */,
 				EB56ADAB2B97654D009C9509 /* AppHelper */,
 				EB56ADAA2B97634F009C9509 /* CustomViews */,
 				EB56AD9B2B9715A4009C9509 /* Design System */,
@@ -94,14 +112,6 @@
 			path = System;
 			sourceTree = "<group>";
 		};
-		EB2567062BA0B3410002CD56 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				EB01ABC52B95C4E200506A40 /* ViewController.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		EB56AD9B2B9715A4009C9509 /* Design System */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +129,7 @@
 				EB56ADA22B975556009C9509 /* CustomButtonView.swift */,
 				EB56ADA42B975568009C9509 /* CustomButtonView.xib */,
 				EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */,
-				EB56ADA82B9758E1009C9509 /* CustomlogoView.xib */,
+				EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -131,6 +141,71 @@
 				EB01ABC32B95C4E200506A40 /* SceneDelegate.swift */,
 			);
 			path = AppHelper;
+			sourceTree = "<group>";
+		};
+		EBF48BA72BB2E428009CA4E0 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BA82BB2E42D009CA4E0 /* Login */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		EBF48BA82BB2E42D009CA4E0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BA92BB2E433009CA4E0 /* Model */,
+				EBF48BAA2BB2E446009CA4E0 /* Repository */,
+				EBF48BAB2BB2E45C009CA4E0 /* UseCase */,
+				EBF48BAC2BB2E462009CA4E0 /* ViewModel */,
+				EBF48BAD2BB2E468009CA4E0 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EBF48BA92BB2E433009CA4E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BCC2BB33163009CA4E0 /* Post.swift */,
+				EBF48BBA2BB2F821009CA4E0 /* LoginResponse.swift */,
+				EBF48BC22BB301F8009CA4E0 /* DummyAuthRequest.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBF48BAA2BB2E446009CA4E0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BB02BB2E4A6009CA4E0 /* PostRepository.swift */,
+				EBF48BC42BB3020A009CA4E0 /* DummyAuthRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EBF48BAB2BB2E45C009CA4E0 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BB32BB2ED66009CA4E0 /* FetchPostsUseCase.swift */,
+				EBF48BC62BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		EBF48BAC2BB2E462009CA4E0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BB52BB2EDFF009CA4E0 /* PostsViewModel.swift */,
+				EBF48BC82BB3025D009CA4E0 /* DummyAuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EBF48BAD2BB2E468009CA4E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB01ABC52B95C4E200506A40 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +274,7 @@
 			files = (
 				EB01ABCE2B95C4E300506A40 /* LaunchScreen.storyboard in Resources */,
 				EB01ABD62B95C4FA00506A40 /* CustomView.xib in Resources */,
-				EB56ADA92B9758E1009C9509 /* CustomlogoView.xib in Resources */,
+				EB56ADA92B9758E1009C9509 /* CustomLogoView.xib in Resources */,
 				EB01ABCB2B95C4E300506A40 /* Assets.xcassets in Resources */,
 				EB01ABC92B95C4E200506A40 /* Main.storyboard in Resources */,
 				EB56ADA52B975568009C9509 /* CustomButtonView.xib in Resources */,
@@ -213,12 +288,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBF48BC32BB301F8009CA4E0 /* DummyAuthRequest.swift in Sources */,
 				EB56ADA32B975556009C9509 /* CustomButtonView.swift in Sources */,
+				EBF48BC92BB3025D009CA4E0 /* DummyAuthViewModel.swift in Sources */,
+				EBF48BB12BB2E4A6009CA4E0 /* PostRepository.swift in Sources */,
+				EBF48BCD2BB33163009CA4E0 /* Post.swift in Sources */,
 				EB01ABC62B95C4E200506A40 /* ViewController.swift in Sources */,
 				EB56AD9D2B9715D8009C9509 /* ColorHelper.swift in Sources */,
+				EBF48BB42BB2ED66009CA4E0 /* FetchPostsUseCase.swift in Sources */,
+				EBF48BC52BB3020A009CA4E0 /* DummyAuthRepository.swift in Sources */,
+				EBF48BBB2BB2F821009CA4E0 /* LoginResponse.swift in Sources */,
 				EB01ABD82B95C63F00506A40 /* CustomView.swift in Sources */,
+				EBF48BC72BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift in Sources */,
 				EB01ABC22B95C4E200506A40 /* AppDelegate.swift in Sources */,
 				EB01ABC42B95C4E200506A40 /* SceneDelegate.swift in Sources */,
+				EBF48BB62BB2EDFF009CA4E0 /* PostsViewModel.swift in Sources */,
 				EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */,
 				EB56AD9F2B972E73009C9509 /* ImageHelper.swift in Sources */,
 			);

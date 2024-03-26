@@ -6,47 +6,16 @@
 //
 
 import UIKit
+import UtilityLibrary
 
-class CustomLogoView: UIView {
-//    static let identifier = "CustomLogoView"
+class CustomLogoView: NibLoadingView {
     
-    @IBOutlet var logoView: UIView!
     @IBOutlet weak var logoLabel: UILabel!
-    @IBOutlet weak var logoImageView: UIImageView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initSubviews()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initSubviews()
-    }
-    
-    func initSubviews() {
-        
-        Bundle.main.loadNibNamed("CustomlogoView", owner: self, options: nil)
-        
-        logoView.frame = self.bounds
-        logoView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        addSubview(logoView)
-        
-        //        let nib = UINib(nibName: CustomLogoView.identifier, bundle: nil)
-        //
-        //        guard let view = nib.instantiate(withOwner: self, options: nil).first as?
-        //                UIView else {fatalError("Unable to convert nib")}
-        //
-        //        view.frame = bounds
-        //        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //
-        //        addSubview(view)
-        
-    }
+    @IBOutlet weak var logoImage: UIImageView!
     
     func configureImageAndText(image : UIImage, text : String) {
         logoLabel.text = text
-        logoImageView.image = image
+        logoImage.image = image
     }
 }
+

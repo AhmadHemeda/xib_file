@@ -9,8 +9,5 @@ import UIKit
 import UtilityLibrary
 
 class CustomButtonView: NibLoadingView {
-    
-    @IBOutlet var registerButtonView: UIView!
-    @IBOutlet weak var registerButton: UIButton!
-    
+    @IBOutlet weak var aButton: UIButton!
 }
