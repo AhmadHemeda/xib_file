@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,7 @@
 		EB01ABCE2B95C4E300506A40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB01ABCC2B95C4E300506A40 /* LaunchScreen.storyboard */; };
 		EB01ABD62B95C4FA00506A40 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB01ABD52B95C4FA00506A40 /* CustomView.xib */; };
 		EB01ABD82B95C63F00506A40 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01ABD72B95C63F00506A40 /* CustomView.swift */; };
-		EB2567092BA0B39A0002CD56 /* UtilityLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = EB2567082BA0B39A0002CD56 /* UtilityLibrary */; };
+		EB0B975B2BA1E01000B98937 /* UtilityLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = EB0B975A2BA1E01000B98937 /* UtilityLibrary */; };
 		EB56AD9D2B9715D8009C9509 /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56AD9C2B9715D8009C9509 /* ColorHelper.swift */; };
 		EB56AD9F2B972E73009C9509 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56AD9E2B972E73009C9509 /* ImageHelper.swift */; };
 		EB56ADA32B975556009C9509 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56ADA22B975556009C9509 /* CustomButtonView.swift */; };
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB2567092BA0B39A0002CD56 /* UtilityLibrary in Frameworks */,
+				EB0B975B2BA1E01000B98937 /* UtilityLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,7 @@
 			);
 			name = XIBCustomView;
 			packageProductDependencies = (
-				EB2567082BA0B39A0002CD56 /* UtilityLibrary */,
+				EB0B975A2BA1E01000B98937 /* UtilityLibrary */,
 			);
 			productName = XIBCustomView;
 			productReference = EB01ABBE2B95C4E200506A40 /* XIBCustomView.app */;
@@ -181,7 +181,7 @@
 			);
 			mainGroup = EB01ABB52B95C4E200506A40;
 			packageReferences = (
-				EB2567072BA0B39A0002CD56 /* XCRemoteSwiftPackageReference "UtilityLibrary" */,
+				EB0B97592BA1E01000B98937 /* XCLocalSwiftPackageReference "../UtilityLibrary" */,
 			);
 			productRefGroup = EB01ABBF2B95C4E200506A40 /* Products */;
 			projectDirPath = "";
@@ -444,21 +444,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		EB2567072BA0B39A0002CD56 /* XCRemoteSwiftPackageReference "UtilityLibrary" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AhmadHemeda/UtilityLibrary.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		EB0B97592BA1E01000B98937 /* XCLocalSwiftPackageReference "../UtilityLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../UtilityLibrary;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EB2567082BA0B39A0002CD56 /* UtilityLibrary */ = {
+		EB0B975A2BA1E01000B98937 /* UtilityLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EB2567072BA0B39A0002CD56 /* XCRemoteSwiftPackageReference "UtilityLibrary" */;
 			productName = UtilityLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */
