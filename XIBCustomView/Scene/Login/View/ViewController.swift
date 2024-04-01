@@ -17,69 +17,51 @@ class ViewController: UIViewController {
     @IBOutlet weak var customButtonView: CustomButtonView!
     @IBOutlet weak var customView: CustomView!
     @IBOutlet weak var stackView: UIStackView!
+    
+    private let coreDataStorageManager = CoreDataStorageManager.shared
     private var cancellables = Set<AnyCancellable>()
-    private var viewModel: DummyAuthViewModel!
+    private var productVM = ProductVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        setupViewModel()
-        fetchToken()
-    }
-    
-    // MARK: - Data Fetching
-
-    private func setupViewModel() {
-        let repository = DummyAuthRepository(apiRequestProvider: APIRequestProvider())
-        let useCase = FetchDummyAuthUseCase(repository: repository)
-        viewModel = DummyAuthViewModel(fetchDummyAuthUseCase: useCase)
         
-        // Subscribe to loginResponse changes
-        viewModel.$loginResponse
-            .sink { [weak self] loginResponse in
-                // Check if loginResponse is not nil
-                if let loginResponse = loginResponse {
-                    // Print all values of the response
-                    print("ID: \(loginResponse.id ?? 0)")
-                    print("Username: \(loginResponse.username ?? "")")
-                    print("Email: \(loginResponse.email ?? "")")
-                    print("First Name: \(loginResponse.firstName ?? "")")
-                    print("Last Name: \(loginResponse.lastName ?? "")")
-                    print("Gender: \(loginResponse.gender ?? "")")
-                    print("Image URL: \(loginResponse.image ?? "")")
-                    print("Token: \(loginResponse.token ?? "")")
-                } else {
-                    print("Login response is nil or empty.")
+//        productVM.fetchProductsRemote { [weak self] error in
+//            if let error = error {
+//                print("Error fetching products: \(error)")
+//            } else {
+//                // If fetching products was successful, save them to Core Data
+//                if let products = self?.productVM.productResponseRemote {
+//                    // Convert products to JSON data (assuming you have Codable conformance)
+//                    do {
+//                        let jsonData = try JSONEncoder().encode(products)
+//                        // Save the response to Core Data
+//                        self?.coreDataStorageManager.saveProductsFromJSON(jsonData: jsonData)
+//                    } catch {
+//                        print("Error encoding products to JSON: \(error)")
+//                    }
+//                }
+//            }
+//        }
+        
+        productVM.fetchProductsLocal { [weak self] error in
+            if let error = error {
+                print("Error fetching products: \(error)")
+            }
+        }
+        
+        // Subscribe to productResponse publisher
+        productVM.$productResponseLocal
+            .sink { [weak self] productResponse in
+                guard let productResponse = productResponse else {
+                    // Handle nil response if needed
+                    return
+                }
+                
+                // Iterate over each product and print its ID
+                for product in productResponse {
+                    print("Product ID: \(product.id)")
                 }
             }
             .store(in: &cancellables)
-    }
-    
-    private func fetchToken() {
-        viewModel.fetchLoginResponse { error in
-            if let error = error {
-                print("Error fetching token: \(error)")
-            }
-        }
-    }
-    
-    // MARK: - UI Configuration
-    
-    private func configureUI() {
-        configureStackView()
-        configureBackground()
-    }
-    
-    private func configureStackView() {
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.distribution = .fillEqually
-        
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func configureBackground() {
-        view.backgroundColor = PaletteHelper.darkSlateBlue.color
     }
 }

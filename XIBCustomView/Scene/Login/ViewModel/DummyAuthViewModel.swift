@@ -3,19 +3,26 @@ import Combine
 
 class DummyAuthViewModel {
     @Published var loginResponse: LoginResponse?
-    private let fetchDummyAuthUseCase: FetchDummyAuthUseCase
+    private let fetchDummyAuthUseCase: FetchDummyAuthUseCase = FetchDummyAuthUseCase()
     
-    init(fetchDummyAuthUseCase: FetchDummyAuthUseCase) {
-        self.fetchDummyAuthUseCase = fetchDummyAuthUseCase
-    }
-    
-    func fetchLoginResponse(completion: @escaping (Error?) -> Void) {
-        fetchDummyAuthUseCase.execute(requestData: ())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion($0 as? Error) }) { [weak self] loginResponse in
-                self?.loginResponse = loginResponse
+    func fetchLoginResponse(
+        completion: @escaping (Error?) -> Void
+    ) {
+        fetchDummyAuthUseCase.execute(
+            requestData: ())
+        .receive(
+            on: DispatchQueue.main
+        )
+        .sink(
+            receiveCompletion: {
+                completion($0 as? Error)
             }
-            .store(in: &cancellables)
+        ) { [weak self] loginResponse in
+            self?.loginResponse = loginResponse
+        }
+        .store(
+            in: &cancellables
+        )
     }
     
     private var cancellables = Set<AnyCancellable>()

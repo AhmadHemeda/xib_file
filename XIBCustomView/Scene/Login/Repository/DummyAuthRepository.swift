@@ -3,11 +3,7 @@ import Combine
 import UtilityLibrary
 
 class DummyAuthRepository: BaseRepository<LoginResponse> {
-    private let apiRequestProvider: APIRequestProviderProtocol
-    
-    init(apiRequestProvider: APIRequestProviderProtocol) {
-        self.apiRequestProvider = apiRequestProvider
-    }
+    private let apiRequestProvider: APIRequestProviderProtocol = APIRequestProvider.shared
     
     override func fetchData() -> AnyPublisher<LoginResponse, Error> {
         let request = BaseAPIRequest<LoginResponse>(baseURL: URL(string: "https://dummyjson.com")!,
