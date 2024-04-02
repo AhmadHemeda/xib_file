@@ -22,6 +22,7 @@
 		EB56ADA52B975568009C9509 /* CustomButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA42B975568009C9509 /* CustomButtonView.xib */; };
 		EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */; };
 		EB56ADA92B9758E1009C9509 /* CustomLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */; };
+		EB57F2F72BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB57F2F62BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift */; };
 		EB6734192BBAD4BD0039492F /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB6734172BBAD4BD0039492F /* CoreDataStorage.xcdatamodeld */; };
 		EB67341E2BBAE56C0039492F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67341D2BBAE56C0039492F /* Product.swift */; };
 		EB7A9F262BBAF3EA004ABA96 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A9F252BBAF3EA004ABA96 /* CoreDataStorage.swift */; };
@@ -59,6 +60,7 @@
 		EB56ADA42B975568009C9509 /* CustomButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomButtonView.xib; sourceTree = "<group>"; };
 		EB56ADA62B9758D0009C9509 /* CustomLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogoView.swift; sourceTree = "<group>"; };
 		EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLogoView.xib; sourceTree = "<group>"; };
+		EB57F2F62BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManagerProtocol.swift; sourceTree = "<group>"; };
 		EB6734182BBAD4BD0039492F /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		EB67341D2BBAE56C0039492F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EB7A9F252BBAF3EA004ABA96 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				EB6734172BBAD4BD0039492F /* CoreDataStorage.xcdatamodeld */,
 				EB7A9F252BBAF3EA004ABA96 /* CoreDataStorage.swift */,
+				EB57F2F62BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift */,
 			);
 			path = CoreDataStorage;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				EBF48BC72BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift in Sources */,
 				EB01ABC22B95C4E200506A40 /* AppDelegate.swift in Sources */,
 				EB7A9F2E2BBAFC27004ABA96 /* ProductRepo.swift in Sources */,
+				EB57F2F72BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift in Sources */,
 				EB01ABC42B95C4E200506A40 /* SceneDelegate.swift in Sources */,
 				EBF48BB62BB2EDFF009CA4E0 /* PostsViewModel.swift in Sources */,
 				EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */,

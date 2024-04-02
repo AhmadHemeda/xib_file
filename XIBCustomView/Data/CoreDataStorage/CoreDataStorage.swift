@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import Combine
 
-class CoreDataStorageManager {
+class CoreDataStorageManager: CoreDataStorageManagerProtocol {
     
     static let shared = CoreDataStorageManager()
     
@@ -25,17 +25,14 @@ class CoreDataStorageManager {
     func saveProductsFromJSON(jsonData: Data) {
 
         do {
-            // Parse JSON data
             let decoder = JSONDecoder()
             let response = try decoder.decode(ProductAPIResponse.self, from: jsonData)
 
-            // Create ProductAPIResponseEntity
             let responseEntity = APIResponseEntity(context: managedObjectContext)
             responseEntity.total = Int16(response.total)
             responseEntity.skip = Int16(response.skip)
             responseEntity.limit = Int16(response.limit)
 
-            // Map and save products
             for product in response.products {
                 let productEntity = ProductEntity(context: managedObjectContext)
                 productEntity.id = Int16(product.id)
@@ -50,13 +47,10 @@ class CoreDataStorageManager {
                 productEntity.thumbnail = product.thumbnail
                 let nsArray = product.images as NSArray
                 productEntity.images = nsArray
-                // You may need to handle relationships to other entities if any
 
-                // Add product to responseEntity's products relationship
                 responseEntity.addToProducts(responseEntity)
             }
 
-            // Save to Core Data
             try managedObjectContext.save()
         } catch {
             print("Error saving to Core Data: \(error)")
@@ -140,7 +134,6 @@ class CoreDataStorageManager {
     }
 }
 
-// Extension to provide a Combine-compatible savePublisher method for NSManagedObjectContext
 extension NSManagedObjectContext {
     func savePublisher() -> AnyPublisher<Void, Error> {
         do {

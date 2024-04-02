@@ -8,4 +8,8 @@ class ProductUseCaseLocal: BaseUseCase<Void, [ProductEntity]> {
     override func execute(requestData: Void) -> AnyPublisher<[ProductEntity], Error> {
         return repository.fetchData()
     }
+    
+    func saveProductsFromJSON(jsonData: Data) {
+        repository.saveProductsFromJSON(jsonData: jsonData)
+    }
 }
