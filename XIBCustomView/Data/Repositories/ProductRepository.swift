@@ -3,7 +3,6 @@ import Combine
 
 class ProductRepository: ProductRepositoryProtocol {
     
-    
     private let productRemoteDataSource: ProductRemoteDataSourceProtocol
     private let productLocalDataSource: ProductLocalDataSourceProtocol
     
@@ -38,6 +37,22 @@ class ProductRepository: ProductRepositoryProtocol {
     
     func fetchProductsLocally() -> AnyPublisher<[ProductEntity], Error> {
         productLocalDataSource.fetchData()
+    }
+    
+    func fetchProductLocally(withId id: Int) -> AnyPublisher<ProductEntity?, Error> {
+        productLocalDataSource.getProduct(withId: id)
+    }
+    
+    func addNewProductLocally(title: String) -> AnyPublisher<Void, Error> {
+        productLocalDataSource.addNewProduct(title: title)
+    }
+    
+    func updateProductLocally(withId id: Int, title: String) -> AnyPublisher<Void, Error> {
+        productLocalDataSource.updateProduct(withId: id, title: title)
+    }
+    
+    func deleteProductLocally(withId id: Int) -> AnyPublisher<Void, Error> {
+        productLocalDataSource.deleteProduct(withId: id)
     }
     
     func saveProductsFromJSON(jsonData: Data) {

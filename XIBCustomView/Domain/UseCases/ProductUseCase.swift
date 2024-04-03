@@ -33,6 +33,22 @@ class ProductUseCase: ProductUseCaseProtocol {
         repository.fetchProductsLocally()
     }
     
+    func fetchProductLocally(withId id: Int) -> AnyPublisher<ProductEntity?, Error> {
+        repository.fetchProductLocally(withId: id)
+    }
+    
+    func addNewProductLocally(title: String) -> AnyPublisher<Void, Error> {
+        repository.addNewProductLocally(title: title)
+    }
+    
+    func updateProductLocally(withId id: Int, title: String) -> AnyPublisher<Void, Error> {
+        repository.updateProductLocally(withId: id, title: title)
+    }
+    
+    func deleteProductLocally(withId id: Int) -> AnyPublisher<Void, Error> {
+        repository.deleteProductLocally(withId: id)
+    }
+    
     func saveProductsFromJSON(jsonData: Data) {
         repository.saveProductsFromJSON(jsonData: jsonData)
     }

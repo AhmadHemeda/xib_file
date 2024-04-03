@@ -2,11 +2,12 @@ import Foundation
 import Combine
 
 class ProductVM {
+    
     @Published var productResponseRemote: ProductAPIResponse?
     @Published var productResponseLocal: [ProductEntity]?
     @Published var product: Product?
 
-    private let productUseCase: ProductUseCase = ProductUseCase()
+    private let productUseCase: ProductUseCaseProtocol = ProductUseCase()
     
     func fetchProductsRemote(completion: @escaping (Error?) -> Void) {
         productUseCase.fetchProductsRemotely()
@@ -25,10 +26,8 @@ class ProductVM {
     }
     
     func addNewProduct(title: String) {
-        print("ProductVM: Calling addNewProduct")
         productUseCase.addNewProductRemotely(title: title)
             .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] product in
-                print("ProductVM: Received product from addNewProduct")
                 self?.product = product
             })
             .store(in: &cancellables)

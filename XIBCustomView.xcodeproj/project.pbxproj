@@ -120,25 +120,26 @@
 		EB01ABC02B95C4E200506A40 /* XIBCustomView */ = {
 			isa = PBXGroup;
 			children = (
-				EB6734122BBAD3D00039492F /* Data */,
 				EB56ADAB2B97654D009C9509 /* Application */,
-				EBF48BA72BB2E428009CA4E0 /* Scene */,
+				EBD723EC2BBDB46A006BD370 /* Presentation */,
+				EBD723ED2BBDB47C006BD370 /* Domain */,
+				EB6734122BBAD3D00039492F /* Data */,
 				EB56ADAA2B97634F009C9509 /* CustomViews */,
 				EB56AD9B2B9715A4009C9509 /* Design System */,
-				EB2567052BA0B32B0002CD56 /* Sources */,
+				EB2567052BA0B32B0002CD56 /* Resources */,
 				EB01ABCF2B95C4E300506A40 /* Info.plist */,
 			);
 			path = XIBCustomView;
 			sourceTree = "<group>";
 		};
-		EB2567052BA0B32B0002CD56 /* Sources */ = {
+		EB2567052BA0B32B0002CD56 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				EB01ABC72B95C4E200506A40 /* Main.storyboard */,
 				EB01ABCA2B95C4E300506A40 /* Assets.xcassets */,
 				EB01ABCC2B95C4E300506A40 /* LaunchScreen.storyboard */,
 			);
-			path = Sources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EB56AD9B2B9715A4009C9509 /* Design System */ = {
@@ -175,6 +176,7 @@
 		EB6734122BBAD3D00039492F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EBD723F22BBDB5B7006BD370 /* Repositories */,
 				EB7A9F312BBB0EDE004ABA96 /* Network */,
 				EB6734162BBAD49C0039492F /* CoreDataStorage */,
 			);
@@ -194,40 +196,10 @@
 		EB67341A2BBAE52C0039492F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB67341C2BBAE5580039492F /* Model */,
 				EB7A9F2A2BBAFA6C004ABA96 /* View */,
 				EB7A9F292BBAFA64004ABA96 /* ViewModel */,
-				EB7A9F282BBAFA5C004ABA96 /* UseCase */,
-				EB7A9F272BBAFA53004ABA96 /* Repository */,
 			);
 			path = Products;
-			sourceTree = "<group>";
-		};
-		EB67341C2BBAE5580039492F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EBDC429C2BBCAEDB007DFB4A /* DataSource */,
-				EB67341D2BBAE56C0039492F /* Product.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		EB7A9F272BBAFA53004ABA96 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				EBDC429D2BBCAF9D007DFB4A /* ProductRepository.swift */,
-				EBDC42A12BBCBF22007DFB4A /* ProductRepositoryProtocol.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		EB7A9F282BBAFA5C004ABA96 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				EB7A9F2F2BBAFD0A004ABA96 /* ProductUseCase.swift */,
-				EBDC429F2BBCBD19007DFB4A /* ProductUseCaseProtocol.swift */,
-			);
-			path = UseCase;
 			sourceTree = "<group>";
 		};
 		EB7A9F292BBAFA64004ABA96 /* ViewModel */ = {
@@ -252,6 +224,66 @@
 				EB7A9F322BBB0EF7004ABA96 /* APIEndpoints.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EBD723EC2BBDB46A006BD370 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EBF48BA72BB2E428009CA4E0 /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		EBD723ED2BBDB47C006BD370 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EBD723EF2BBDB560006BD370 /* Entities */,
+				EBD723F02BBDB56B006BD370 /* UseCases */,
+				EBD723F12BBDB575006BD370 /* Interfaces */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EBD723EF2BBDB560006BD370 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				EB67341D2BBAE56C0039492F /* Product.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		EBD723F02BBDB56B006BD370 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				EB7A9F2F2BBAFD0A004ABA96 /* ProductUseCase.swift */,
+				EBD723F32BBDB727006BD370 /* Protocol */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		EBD723F12BBDB575006BD370 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				EBDC42A12BBCBF22007DFB4A /* ProductRepositoryProtocol.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		EBD723F22BBDB5B7006BD370 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				EBDC429C2BBCAEDB007DFB4A /* DataSource */,
+				EBDC429D2BBCAF9D007DFB4A /* ProductRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		EBD723F32BBDB727006BD370 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				EBDC429F2BBCBD19007DFB4A /* ProductUseCaseProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		EBDC429C2BBCAEDB007DFB4A /* DataSource */ = {
@@ -281,13 +313,13 @@
 			path = LocalDataSource;
 			sourceTree = "<group>";
 		};
-		EBF48BA72BB2E428009CA4E0 /* Scene */ = {
+		EBF48BA72BB2E428009CA4E0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				EB67341A2BBAE52C0039492F /* Products */,
 				EBF48BA82BB2E42D009CA4E0 /* Login */,
 			);
-			path = Scene;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		EBF48BA82BB2E42D009CA4E0 /* Login */ = {
