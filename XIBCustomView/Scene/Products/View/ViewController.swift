@@ -4,13 +4,6 @@ import UtilityLibrary
 
 class ViewController: UIViewController {
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var customLogoView: CustomLogoView!
-    @IBOutlet weak var customButtonView: CustomButtonView!
-    @IBOutlet weak var customView: CustomView!
-    @IBOutlet weak var stackView: UIStackView!
-    
     private var cancellables = Set<AnyCancellable>()
     private var productVM = ProductVM()
     
@@ -19,7 +12,7 @@ class ViewController: UIViewController {
         
         fetchProducts()
         observeProductResponseLocalChanges()
-//        observeProductChanges()
+        observeProductChanges()
     }
     
     private func fetchProducts() {
@@ -48,8 +41,8 @@ class ViewController: UIViewController {
                 }
                 
                 for productEntity in productEntities {
-                    print("Product ID: \(productEntity.id)")
-                    print("Product Title: \(productEntity.title ?? "")")
+                    print("Product ID Local: \(productEntity.id)")
+                    print("Product Title Local: \(productEntity.title ?? "")")
                     // Print other product details...
                 }
             }
@@ -57,14 +50,16 @@ class ViewController: UIViewController {
     }
     
     private func observeProductChanges() {
-        productVM.$product
+        productVM.$productResponseRemote
             .sink { [weak self] product in
                 guard let product = product else {
                     return
                 }
                 
-                print("Product ID: \(product.id)")
-                print("Product Title: \(product.title)")
+                for product in product.products {
+                    print("Product ID Remote: \(product.id)")
+                    print("Product Title Remote: \(product.title)")
+                }
                 // Print other product details...
             }
             .store(in: &cancellables)

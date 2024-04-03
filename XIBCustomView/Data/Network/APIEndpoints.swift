@@ -1,66 +1,60 @@
-//
-//  APIEndpoints.swift
-//  XIBCustomView
-//
-//  Created by Ahmad Hemeda on 01/04/2024.
-//
-
 import Foundation
 import UtilityLibrary
 
 struct APIEndpoints {
+    private static let baseURL = URL(string: "https://dummyjson.com")!
+    private static let commonHeaders = ["Content-Type": "application/json"]
+    
+    private static func makeURLPath(_ pathComponent: String) -> String {
+        return "/\(pathComponent)"
+    }
+    
+    private static func makeRequestBody(withTitle title: String) -> Data? {
+        let bodyDict = ["title": title]
+        return try? JSONEncoder().encode(bodyDict)
+    }
+    
     static func getProducts() -> BaseAPIRequest<ProductAPIResponse> {
-        let request = BaseAPIRequest<ProductAPIResponse>(
-            baseURL: URL(string: "https://dummyjson.com")!,
-            path: "/products",
-            method: "GET"
+        return BaseAPIRequest(
+            baseURL: baseURL,
+            path: makeURLPath("products"),
+            method: .get
         )
-        return request
     }
     
     static func getProduct(withId id: Int) -> BaseAPIRequest<Product> {
-        let request = BaseAPIRequest<Product>(
-            baseURL: URL(string: "https://dummyjson.com")!,
-            path: "/products/\(id)",
-            method: "GET"
+        return BaseAPIRequest(
+            baseURL: baseURL,
+            path: makeURLPath("products/\(id)"),
+            method: .get
         )
-        return request
     }
     
     static func addNewProduct(title: String) -> BaseAPIRequest<Product> {
-        let bodyDict = ["title": title]
-        let bodyData = try? JSONSerialization.data(withJSONObject: bodyDict)
-        let headers = ["Content-Type": "application/json"]
-        let request = BaseAPIRequest<Product>(
-            baseURL: URL(string: "https://dummyjson.com")!,
-            path: "/products/add",
-            method: "POST",
-            headers: headers,
-            body: bodyData
+        return BaseAPIRequest(
+            baseURL: baseURL,
+            path: makeURLPath("products/add"),
+            method: .post,
+            headers: commonHeaders,
+            body: makeRequestBody(withTitle: title)
         )
-        return request
     }
 
     static func updateProduct(withId id: Int, title: String) -> BaseAPIRequest<Product> {
-        let bodyDict = ["title": title]
-        let bodyData = try? JSONSerialization.data(withJSONObject: bodyDict)
-        let headers = ["Content-Type": "application/json"]
-        let request = BaseAPIRequest<Product>(
-            baseURL: URL(string: "https://dummyjson.com")!,
-            path: "/products/\(id)",
-            method: "PUT",
-            headers: headers,
-            body: bodyData
+        return BaseAPIRequest(
+            baseURL: baseURL,
+            path: makeURLPath("products/\(id)"),
+            method: .put,
+            headers: commonHeaders,
+            body: makeRequestBody(withTitle: title)
         )
-        return request
     }
     
     static func deleteProduct(withId id: Int) -> BaseAPIRequest<Product> {
-        let request = BaseAPIRequest<Product>(
-            baseURL: URL(string: "https://dummyjson.com")!,
-            path: "/products/\(id)",
-            method: "DELETE"
+        return BaseAPIRequest(
+            baseURL: baseURL,
+            path: makeURLPath("products/\(id)"),
+            method: .delete
         )
-        return request
     }
 }

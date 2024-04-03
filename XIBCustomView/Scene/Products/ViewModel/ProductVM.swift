@@ -3,14 +3,13 @@ import Combine
 
 class ProductVM {
     @Published var productResponseRemote: ProductAPIResponse?
-    @Published var product: Product?
-    private let productUseCaseRemote: ProductUseCase = ProductUseCase()
-    
     @Published var productResponseLocal: [ProductEntity]?
-    private let productUseCaseLocal: ProductUseCaseLocal = ProductUseCaseLocal()
+    @Published var product: Product?
+
+    private let productUseCase: ProductUseCase = ProductUseCase()
     
     func fetchProductsRemote(completion: @escaping (Error?) -> Void) {
-        productUseCaseRemote.execute(requestData: ())
+        productUseCase.fetchProductsRemotely()
             .sink(receiveCompletion: {completion($0 as? Error)}) { [weak self] productResponseRemote in
                 self?.productResponseRemote = productResponseRemote
             }
@@ -18,7 +17,7 @@ class ProductVM {
     }
     
     func getProduct(withId id: Int) {
-        productUseCaseRemote.getProduct(withId: id)
+        productUseCase.fetchProductRemotely(withId: id)
             .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] product in
                 self?.product = product
             })
@@ -27,7 +26,7 @@ class ProductVM {
     
     func addNewProduct(title: String) {
         print("ProductVM: Calling addNewProduct")
-        productUseCaseRemote.addNewProduct(title: title)
+        productUseCase.addNewProductRemotely(title: title)
             .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] product in
                 print("ProductVM: Received product from addNewProduct")
                 self?.product = product
@@ -36,7 +35,7 @@ class ProductVM {
     }
     
     func updateProduct(withId id: Int, title: String) {
-        productUseCaseRemote.updateProduct(withId: id, title: title)
+        productUseCase.updateProductRemotely(withId: id, title: title)
             .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] product in
                 self?.product = product
             })
@@ -44,7 +43,7 @@ class ProductVM {
     }
     
     func deleteProduct(withId id: Int) {
-        productUseCaseRemote.deleteProduct(withId: id)
+        productUseCase.deleteProductRemotely(withId: id)
             .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] product in
                 self?.product = product
             })
@@ -52,9 +51,7 @@ class ProductVM {
     }
     
     func fetchProductsLocal(completion: @escaping (Error?) -> Void) {
-        productUseCaseLocal.execute(
-            requestData: ())
-        .receive(on: DispatchQueue.main)
+        productUseCase.fetchProductsLocally()
         .sink(receiveCompletion: {completion($0 as? Error)}) { [weak self] productResponseLocal in
             self?.productResponseLocal = productResponseLocal
         }
@@ -64,13 +61,11 @@ class ProductVM {
     func saveProductsToCoreData(products: ProductAPIResponse) {
         do {
             let jsonData = try JSONEncoder().encode(products)
-            productUseCaseLocal.saveProductsFromJSON(jsonData: jsonData)
+            productUseCase.saveProductsFromJSON(jsonData: jsonData)
         } catch {
             print("Error encoding products to JSON: \(error)")
         }
     }
-    
-    
     
     private var cancellables = Set<AnyCancellable>()
 }

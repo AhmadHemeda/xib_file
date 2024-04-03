@@ -2,31 +2,38 @@ import Foundation
 import Combine
 import UtilityLibrary
 
-class ProductUseCase: BaseUseCase<Void, ProductAPIResponse> {
-    private let repository: ProductRepo = ProductRepo()
+class ProductUseCase: ProductUseCaseProtocol {
     
-    override func execute(requestData: Void) -> AnyPublisher<ProductAPIResponse, Error> {
-        return repository.fetchData()
+    private let repository: ProductRepositoryProtocol = ProductRepository(
+        productRemoteDataSource: ProductRemoteDataSource(),
+        productLocalDataSource: ProductLocalDataSource()
+    )
+    
+    func fetchProductsRemotely() -> AnyPublisher<ProductAPIResponse, any Error> {
+        repository.fetchProductsRemotely()
     }
     
-//    func getProducts() -> AnyPublisher<ProductAPIResponse, Error> {
-//        repository.fetchData()
-//    }
-    
-    func getProduct(withId id: Int) -> AnyPublisher<Product, Error> {
-        return repository.getProduct(withId: id)
+    func fetchProductRemotely(withId id: Int) -> AnyPublisher<Product, any Error> {
+        repository.fetchProductRemotely(withId: id)
     }
     
-    func addNewProduct(title: String) -> AnyPublisher<Product, Error> {
-        print("ProductUseCaseRemote: Executing addNewProduct")
-        return repository.addNewProduct(title: title)
+    func addNewProductRemotely(title: String) -> AnyPublisher<Product, any Error> {
+        repository.addNewProductRemotely(title: title)
     }
     
-    func updateProduct(withId id: Int, title: String) -> AnyPublisher<Product, Error> {
-        return repository.updateProduct(withId: id, title: title)
+    func updateProductRemotely(withId id: Int, title: String) -> AnyPublisher<Product, any Error> {
+        repository.updateProductRemotely(withId: id, title: title)
     }
     
-    func deleteProduct(withId id: Int) -> AnyPublisher<Product, Error> {
-        return repository.deleteProduct(withId: id)
+    func deleteProductRemotely(withId id: Int) -> AnyPublisher<Product, any Error> {
+        repository.deleteProductRemotely(withId: id)
+    }
+    
+    func fetchProductsLocally() -> AnyPublisher<[ProductEntity], any Error> {
+        repository.fetchProductsLocally()
+    }
+    
+    func saveProductsFromJSON(jsonData: Data) {
+        repository.saveProductsFromJSON(jsonData: jsonData)
     }
 }

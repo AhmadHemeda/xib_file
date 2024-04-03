@@ -2,10 +2,10 @@ import Foundation
 import Combine
 import UtilityLibrary
 
-class ProductRepoLocal: BaseRepository<[ProductEntity]> {
+class ProductLocalDataSource: ProductLocalDataSourceProtocol {
     private let coreDataStorageManager: CoreDataStorageManagerProtocol = CoreDataStorageManager.shared
     
-    override func fetchData() -> AnyPublisher<[ProductEntity], Error> {
+    func fetchData() -> AnyPublisher<[ProductEntity], Error> {
         return coreDataStorageManager.getAllProducts()
     }
     

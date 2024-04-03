@@ -1,10 +1,3 @@
-//
-//  CoreDataStorageManagerProtocol.swift
-//  XIBCustomView
-//
-//  Created by Ahmad Hemeda on 02/04/2024.
-//
-
 import Foundation
 import Combine
 import CoreData

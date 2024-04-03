@@ -15,40 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tq5-Zg-dWT">
-                                <rect key="frame" x="16" y="75" width="361" height="727"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6s-UT-jul" customClass="CustomLogoView">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="242.33333333333334"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Dt-LK-oNV" customClass="CustomButtonView" customModule="XIBCustomView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="242.33333333333331" width="361" height="242.33333333333331"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWY-JX-sOf" customClass="CustomView" customModule="XIBCustomView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="484.66666666666657" width="361" height="242.33333333333331"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="tq5-Zg-dWT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="XHT-Lt-0uc"/>
-                            <constraint firstItem="tq5-Zg-dWT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="j4F-Es-lvU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tq5-Zg-dWT" secondAttribute="bottom" constant="16" id="rbq-D1-fQg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tq5-Zg-dWT" secondAttribute="trailing" constant="16" id="xCZ-3g-tNu"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="customButtonView" destination="9Dt-LK-oNV" id="OQu-Zk-dVf"/>
-                        <outlet property="customLogoView" destination="y6s-UT-jul" id="3gr-53-J5j"/>
-                        <outlet property="customView" destination="gWY-JX-sOf" id="hYE-15-xun"/>
-                        <outlet property="stackView" destination="tq5-Zg-dWT" id="DdY-DY-i9I"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

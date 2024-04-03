@@ -9,8 +9,8 @@ class PostRepository: BaseRepository<[Post]> {
         self.apiRequestProvider = apiRequestProvider
     }
     
-    override func fetchData() -> AnyPublisher<[Post], Error> {
-        let request = BaseAPIRequest<[Post]>(baseURL: URL(string: "https://jsonplaceholder.typicode.com")!, path: "/posts", method: "GET")
-        return apiRequestProvider.makeRequest(request: request)
-    }
+//    override func fetchData() -> AnyPublisher<[Post], Error> {
+//        let request = BaseAPIRequest<[Post]>(baseURL: URL(string: "https://jsonplaceholder.typicode.com")!, path: "/posts", method: "GET")
+//        return apiRequestProvider.makeRequest(request: request)
+//    }
 }

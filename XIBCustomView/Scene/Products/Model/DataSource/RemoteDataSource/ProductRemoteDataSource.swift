@@ -2,10 +2,11 @@ import Foundation
 import Combine
 import UtilityLibrary
 
-class ProductRepo: BaseRepository<ProductAPIResponse> {
+class ProductRemoteDataSource: ProductRemoteDataSourceProtocol {
+    
     private let apiRequestProvider: APIRequestProviderProtocol = APIRequestProvider.shared
     
-    override func fetchData() -> AnyPublisher<ProductAPIResponse, Error> {
+    func fetchData() -> AnyPublisher<ProductAPIResponse, Error> {
         let request = APIEndpoints.getProducts()
         return apiRequestProvider.makeRequest(request: request)
     }
