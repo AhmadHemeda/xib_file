@@ -5,10 +5,10 @@ import CoreData
 protocol CoreDataStorageManagerProtocol {
     var managedObjectContext: NSManagedObjectContext { get }
     
-    func saveProductsFromJSON(jsonData: Data)
+    func saveProductsFromJSON(response: ProductAPIResponse)
     func getAllProducts() -> AnyPublisher<[ProductEntity], Error>
-    func getProduct(withId id: Int) -> AnyPublisher<ProductEntity?, Error>
-    func addNewProduct(title: String) -> AnyPublisher<Void, Error>
-    func updateProduct(withId id: Int, title: String) -> AnyPublisher<Void, Error>
-    func deleteProduct(withId id: Int) -> AnyPublisher<Void, Error>
+    func getProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity?, Error>
+    func addNewProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error>
+    func updateProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error>
+    func deleteProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error>
 }

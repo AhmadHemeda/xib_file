@@ -1,61 +1,57 @@
 import Foundation
 import Combine
+import UtilityLibrary
 
 class ProductRepository: ProductRepositoryProtocol {
     
-    private let productRemoteDataSource: ProductRemoteDataSourceProtocol
-    private let productLocalDataSource: ProductLocalDataSourceProtocol
+    private let remoteRepository: RemoteProductRepositoryProtocol = RemoteProductRepository()
+    private let localRepository: LocalProductRepositoryProtocol = LocalProductRepository()
     
-    init(productRemoteDataSource: ProductRemoteDataSourceProtocol, productLocalDataSource: ProductLocalDataSourceProtocol) {
-        self.productRemoteDataSource = productRemoteDataSource
-        self.productLocalDataSource = productLocalDataSource
+    // MARK: - RemoteProductRepositoryProtocol
+    
+    func fetchProducts<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error> {
+        remoteRepository.fetchProducts(withEndpoint: endpoint)
     }
     
-    // MARK: - Remote
-    
-    func fetchProductsRemotely() -> AnyPublisher<ProductAPIResponse, Error> {
-        productRemoteDataSource.fetchData()
+    func getProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error> {
+        remoteRepository.getProduct(withEndpoint: endpoint)
     }
     
-    func fetchProductRemotely(withId id: Int) -> AnyPublisher<Product, Error> {
-        productRemoteDataSource.getProduct(withId: id)
+    func addNewProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error> {
+        remoteRepository.addNewProduct(withEndpoint: endpoint)
     }
     
-    func addNewProductRemotely(title: String) -> AnyPublisher<Product, Error> {
-        return productRemoteDataSource.addNewProduct(title: title)
+    func updateProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error> {
+        remoteRepository.updateProduct(withEndpoint: endpoint)
     }
     
-    func updateProductRemotely(withId id: Int, title: String) -> AnyPublisher<Product, Error> {
-        productRemoteDataSource.updateProduct(withId: id, title: title)
+    func deleteProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error> {
+        remoteRepository.deleteProduct(withEndpoint: endpoint)
     }
     
-    func deleteProductRemotely(withId id: Int) -> AnyPublisher<Product, Error> {
-        productRemoteDataSource.deleteProduct(withId: id)
-    }
-    
-    // MARK: - Local
+    // MARK: - LocalProductRepositoryProtocol
     
     func fetchProductsLocally() -> AnyPublisher<[ProductEntity], Error> {
-        productLocalDataSource.fetchData()
+        localRepository.fetchProductsLocally()
     }
     
-    func fetchProductLocally(withId id: Int) -> AnyPublisher<ProductEntity?, Error> {
-        productLocalDataSource.getProduct(withId: id)
+    func getProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity?, Error> {
+        localRepository.getProductLocally(with: product)
     }
     
-    func addNewProductLocally(title: String) -> AnyPublisher<Void, Error> {
-        productLocalDataSource.addNewProduct(title: title)
+    func addNewProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error> {
+        localRepository.addNewProductLocally(with: product)
     }
     
-    func updateProductLocally(withId id: Int, title: String) -> AnyPublisher<Void, Error> {
-        productLocalDataSource.updateProduct(withId: id, title: title)
+    func updateProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error> {
+        localRepository.updateProductLocally(with: product)
     }
     
-    func deleteProductLocally(withId id: Int) -> AnyPublisher<Void, Error> {
-        productLocalDataSource.deleteProduct(withId: id)
+    func deleteProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error> {
+        localRepository.deleteProductLocally(with: product)
     }
     
-    func saveProductsFromJSON(jsonData: Data) {
-        productLocalDataSource.saveProductsFromJSON(jsonData: jsonData)
+    func saveProductsFromJSON(with product: ProductAPIResponse) {
+        localRepository.saveProductsFromJSON(with: product)
     }
 }

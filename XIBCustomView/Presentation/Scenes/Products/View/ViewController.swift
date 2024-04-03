@@ -4,80 +4,75 @@ import UtilityLibrary
 
 class ViewController: UIViewController {
     
+    // MARK: - Properties
+    
     private var cancellables = Set<AnyCancellable>()
     private var productVM = ProductVM()
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBindings()
         fetchProducts()
-        observeProductResponseLocalChanges()
-        observeProductChanges()
     }
     
-    private func fetchProducts() {
-        productVM.fetchProductsRemote { [weak self] error in
-            if let error = error {
-                print("Error fetching products: \(error)")
-            } else {
-                if let products = self?.productVM.productResponseRemote {
-                    self?.productVM.saveProductsToCoreData(products: products)
-                    
-                    self?.productVM.fetchProductsLocal { error in
-                        if let error = error {
-                            print("Error fetching products: \(error)")
-                        }
-                    }
-                }
+    // MARK: - Setup
+    
+    private func setupBindings() {
+        productVM.$productResponseRemote
+            .sink { [weak self] productResponse in
+                self?.handleProductResponse(productResponse)
             }
+            .store(in: &cancellables)
+        
+        productVM.$error
+            .sink { [weak self] error in
+                self?.handleError(error)
+            }
+            .store(in: &cancellables)
+        
+        productVM.$productResponseLocal
+            .sink { [weak self] productResponse in
+                self?.handleProductResponseLocal(productResponse)
+            }
+            .store(in: &cancellables)
+    }
+    
+    // MARK: - Fetch Products
+    
+    private func fetchProducts() {
+        productVM.fetchProducts()
+    }
+    
+    // MARK: - Handling Responses
+    
+    private func handleProductResponse(_ productResponse: ProductAPIResponse?) {
+        if let product = productResponse?.products {
+            print(product)
+        } else {
+            print("Product response is nil or empty")
         }
     }
     
-    private func observeProductResponseLocalChanges() {
-        productVM.$productResponseLocal
-            .sink { [weak self] productEntities in
-                guard let productEntities = productEntities else {
-                    return
-                }
-                
-                for productEntity in productEntities {
-                    print("Product ID Local: \(productEntity.id)")
-                    print("Product Title Local: \(productEntity.title ?? "")")
-                    // Print other product details...
-                }
+    private func handleProductResponseLocal(_ productResponse: [ProductEntity]?) {
+        if let productResponse = productResponse, !productResponse.isEmpty {
+            print("Local products response:")
+            for product in productResponse {
+                print("Product title: \(product.title ?? "No title")")
+                print("Product description: \(product.productDescription ?? "No description")")
+                // Access and print other properties as needed
             }
-            .store(in: &cancellables)
+        } else {
+            print("Local products response is empty")
+        }
     }
     
-    private func observeProductChanges() {
-        productVM.$productResponseRemote
-            .sink { [weak self] product in
-                guard let product = product else {
-                    return
-                }
-                
-                for product in product.products {
-                    print("Product ID Remote: \(product.id)")
-                    print("Product Title Remote: \(product.title)")
-                }
-                // Print other product details...
-            }
-            .store(in: &cancellables)
-    }
-    
-    private func getProduct(withId id: Int) {
-        productVM.getProduct(withId: id)
-    }
-    
-    private func addNewProduct(title: String) {
-        productVM.addNewProduct(title: title)
-    }
-    
-    private func updateProduct(withId id: Int, title: String) {
-        productVM.updateProduct(withId: id, title: title)
-    }
-    
-    private func deleteProduct(withId id: Int) {
-        productVM.deleteProduct(withId: id)
+    private func handleError(_ error: Error?) {
+        if let error = error {
+            print("Error: \(error)")
+        } else {
+            print("No error")
+        }
     }
 }

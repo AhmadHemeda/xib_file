@@ -22,17 +22,15 @@ class CoreDataStorageManager: CoreDataStorageManagerProtocol {
         return persistentContainer.viewContext
     }
     
-    func saveProductsFromJSON(jsonData: Data) {
-
+    func saveProductsFromJSON(response: ProductAPIResponse) {
+        
         do {
-            let decoder = JSONDecoder()
-            let response = try decoder.decode(ProductAPIResponse.self, from: jsonData)
-
+            
             let responseEntity = APIResponseEntity(context: managedObjectContext)
             responseEntity.total = Int16(response.total)
             responseEntity.skip = Int16(response.skip)
             responseEntity.limit = Int16(response.limit)
-
+            
             for product in response.products {
                 let productEntity = ProductEntity(context: managedObjectContext)
                 productEntity.id = Int16(product.id)
@@ -47,16 +45,16 @@ class CoreDataStorageManager: CoreDataStorageManagerProtocol {
                 productEntity.thumbnail = product.thumbnail
                 let nsArray = product.images as NSArray
                 productEntity.images = nsArray
-
+                
                 responseEntity.addToProducts(responseEntity)
             }
-
+            
             try managedObjectContext.save()
         } catch {
             print("Error saving to Core Data: \(error)")
         }
     }
-
+    
     
     // MARK: - API Operations
     
@@ -72,9 +70,9 @@ class CoreDataStorageManager: CoreDataStorageManagerProtocol {
         }.eraseToAnyPublisher()
     }
     
-    func getProduct(withId id: Int) -> AnyPublisher<ProductEntity?, Error> {
+    func getProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity?, Error> {
         let fetchRequest: NSFetchRequest<ProductEntity> = ProductEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %d", id)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", response.products.first?.id ?? 0)
         
         return Future<ProductEntity?, Error> { promise in
             do {
@@ -85,41 +83,40 @@ class CoreDataStorageManager: CoreDataStorageManagerProtocol {
             }
         }.eraseToAnyPublisher()
     }
-
     
-    func addNewProduct(title: String) -> AnyPublisher<Void, Error> {
-        return Future<Void, Error> { promise in
+    func addNewProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error> {
+        return Future<ProductEntity, Error> { promise in
             let newProduct = ProductEntity(context: self.managedObjectContext)
-            newProduct.title = title
+            newProduct.title = response.products.first?.title
             
             do {
                 try self.managedObjectContext.save()
-                promise(.success(()))
+                promise(.success(newProduct))
             } catch {
                 promise(.failure(error))
             }
         }.eraseToAnyPublisher()
     }
     
-    func updateProduct(withId id: Int, title: String) -> AnyPublisher<Void, Error> {
-        return getProduct(withId: id)
-            .flatMap { product -> AnyPublisher<Void, Error> in
+    func updateProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error> {
+        return getProduct(response: response)
+            .flatMap { product -> AnyPublisher<ProductEntity, Error> in
                 guard let product = product else {
                     return Fail(error: NSError(domain: "com.example.error", code: 404, userInfo: [NSLocalizedDescriptionKey: "Product not found"])) .eraseToAnyPublisher()
                 }
                 
-                product.title = title
+                product.title = response.products.first?.title
                 
                 return self.managedObjectContext.savePublisher()
-                    .map { _ in () }
+                    .map { _ in product }
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()
     }
     
-    func deleteProduct(withId id: Int) -> AnyPublisher<Void, Error> {
-        return getProduct(withId: id)
-            .flatMap { product -> AnyPublisher<Void, Error> in
+    func deleteProduct(response: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error> {
+        return getProduct(response: response)
+            .flatMap { product -> AnyPublisher<ProductEntity, Error> in
                 guard let product = product else {
                     return Fail(error: NSError(domain: "com.example.error", code: 404, userInfo: [NSLocalizedDescriptionKey: "Product not found"])) .eraseToAnyPublisher()
                 }
@@ -127,7 +124,7 @@ class CoreDataStorageManager: CoreDataStorageManagerProtocol {
                 self.managedObjectContext.delete(product)
                 
                 return self.managedObjectContext.savePublisher()
-                    .map { _ in () }
+                    .map { _ in product }
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()

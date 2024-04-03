@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Product Model
 struct Product: Codable {
     let id: Int
     let title: String
@@ -22,7 +21,6 @@ struct Product: Codable {
     let images: [String]
 }
 
-// APIResponse Model
 struct ProductAPIResponse: Codable {
     let products: [Product]
     let total: Int

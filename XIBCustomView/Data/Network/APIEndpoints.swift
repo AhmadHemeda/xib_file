@@ -1,7 +1,7 @@
 import Foundation
 import UtilityLibrary
 
-struct APIEndpoints {
+struct APIEndpoint {
     private static let baseURL = URL(string: "https://dummyjson.com")!
     private static let commonHeaders = ["Content-Type": "application/json"]
     

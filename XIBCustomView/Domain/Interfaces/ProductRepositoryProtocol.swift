@@ -1,17 +1,19 @@
 import Foundation
 import Combine
+import UtilityLibrary
 
-protocol ProductRepositoryProtocol {
-    func fetchProductsRemotely() -> AnyPublisher<ProductAPIResponse, Error>
-    func fetchProductRemotely(withId id: Int) -> AnyPublisher<Product, Error>
-    func addNewProductRemotely(title: String) -> AnyPublisher<Product, Error>
-    func updateProductRemotely(withId id: Int, title: String) -> AnyPublisher<Product, Error>
-    func deleteProductRemotely(withId id: Int) -> AnyPublisher<Product, Error>
+protocol ProductRepositoryProtocol: RemoteProductRepositoryProtocol, LocalProductRepositoryProtocol {
+    func fetchProducts<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
+    func getProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
+    func addNewProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
+    func updateProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
+    func deleteProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
     
     func fetchProductsLocally() -> AnyPublisher<[ProductEntity], Error>
-    func fetchProductLocally(withId id: Int) -> AnyPublisher<ProductEntity?, Error>
-    func addNewProductLocally(title: String) -> AnyPublisher<Void, Error>
-    func updateProductLocally(withId id: Int, title: String) -> AnyPublisher<Void, Error>
-    func deleteProductLocally(withId id: Int) -> AnyPublisher<Void, Error>
-    func saveProductsFromJSON(jsonData: Data)
+    func getProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity?, Error>
+    func addNewProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error>
+    func updateProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error>
+    func deleteProductLocally(with product: ProductAPIResponse) -> AnyPublisher<ProductEntity, Error>
+    
+    func saveProductsFromJSON(with product: ProductAPIResponse)
 }
