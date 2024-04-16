@@ -2,10 +2,12 @@ import Foundation
 
 class ProductRepositoryFactory: ProductRepositoryFactoryProtocol {
     func makeRemoteRepository() -> RemoteProductRepositoryProtocol {
-        return RemoteProductRepository()
+        let remoteRepository = RemoteProductRepository()
+        return LoggingRemoteProductRepositoryDecorator(repository: remoteRepository)
     }
-    
+
     func makeLocalRepository() -> LocalProductRepositoryProtocol {
-        return LocalProductRepository()
+        let localRepository = LocalProductRepository()
+        return LoggingLocalProductRepositoryDecorator(repository: localRepository)
     }
 }
