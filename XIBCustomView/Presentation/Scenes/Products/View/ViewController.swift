@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupBindings()
         fetchProductsFromRemote()
-        fetchProductsFromLocal()
+//        fetchProductsFromLocal()
     }
 
     // MARK: - Setup

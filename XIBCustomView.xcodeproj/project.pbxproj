@@ -33,6 +33,8 @@
 		EB7A9F262BBAF3EA004ABA96 /* CoreDataStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A9F252BBAF3EA004ABA96 /* CoreDataStorageManager.swift */; };
 		EB7A9F2C2BBAFC04004ABA96 /* ProductVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A9F2B2BBAFC04004ABA96 /* ProductVM.swift */; };
 		EB7A9F332BBB0EF7004ABA96 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A9F322BBB0EF7004ABA96 /* APIEndpoints.swift */; };
+		EBAE41692BCEAB89005BC27C /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE41682BCEAB89005BC27C /* DependencyContainer.swift */; };
+		EBAE416C2BCEAC16005BC27C /* FetchProductsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE416B2BCEAC16005BC27C /* FetchProductsUseCaseProtocol.swift */; };
 		EBD723F62BBDC394006BD370 /* LocalProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD723F52BBDC394006BD370 /* LocalProductRepository.swift */; };
 		EBD723F82BBDC3C2006BD370 /* RemoteProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD723F72BBDC3C2006BD370 /* RemoteProductRepository.swift */; };
 		EBD723FC2BBDE73A006BD370 /* LocalProductRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD723FB2BBDE73A006BD370 /* LocalProductRepositoryProtocol.swift */; };
@@ -40,15 +42,6 @@
 		EBD724022BBDEC50006BD370 /* FetchProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD724012BBDEC50006BD370 /* FetchProductsUseCase.swift */; };
 		EBDC429E2BBCAF9D007DFB4A /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC429D2BBCAF9D007DFB4A /* ProductRepository.swift */; };
 		EBDC42A22BBCBF22007DFB4A /* ProductRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC42A12BBCBF22007DFB4A /* ProductRepositoryProtocol.swift */; };
-		EBF48BB12BB2E4A6009CA4E0 /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BB02BB2E4A6009CA4E0 /* PostRepository.swift */; };
-		EBF48BB42BB2ED66009CA4E0 /* FetchPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BB32BB2ED66009CA4E0 /* FetchPostsUseCase.swift */; };
-		EBF48BB62BB2EDFF009CA4E0 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BB52BB2EDFF009CA4E0 /* PostsViewModel.swift */; };
-		EBF48BBB2BB2F821009CA4E0 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BBA2BB2F821009CA4E0 /* LoginResponse.swift */; };
-		EBF48BC32BB301F8009CA4E0 /* DummyAuthRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC22BB301F8009CA4E0 /* DummyAuthRequest.swift */; };
-		EBF48BC52BB3020A009CA4E0 /* DummyAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC42BB3020A009CA4E0 /* DummyAuthRepository.swift */; };
-		EBF48BC72BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC62BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift */; };
-		EBF48BC92BB3025D009CA4E0 /* DummyAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BC82BB3025D009CA4E0 /* DummyAuthViewModel.swift */; };
-		EBF48BCD2BB33163009CA4E0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF48BCC2BB33163009CA4E0 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +72,8 @@
 		EB7A9F252BBAF3EA004ABA96 /* CoreDataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManager.swift; sourceTree = "<group>"; };
 		EB7A9F2B2BBAFC04004ABA96 /* ProductVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVM.swift; sourceTree = "<group>"; };
 		EB7A9F322BBB0EF7004ABA96 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		EBAE41682BCEAB89005BC27C /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		EBAE416B2BCEAC16005BC27C /* FetchProductsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductsUseCaseProtocol.swift; sourceTree = "<group>"; };
 		EBD723F52BBDC394006BD370 /* LocalProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProductRepository.swift; sourceTree = "<group>"; };
 		EBD723F72BBDC3C2006BD370 /* RemoteProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProductRepository.swift; sourceTree = "<group>"; };
 		EBD723FB2BBDE73A006BD370 /* LocalProductRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalProductRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -86,15 +81,6 @@
 		EBD724012BBDEC50006BD370 /* FetchProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductsUseCase.swift; sourceTree = "<group>"; };
 		EBDC429D2BBCAF9D007DFB4A /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
 		EBDC42A12BBCBF22007DFB4A /* ProductRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepositoryProtocol.swift; sourceTree = "<group>"; };
-		EBF48BB02BB2E4A6009CA4E0 /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
-		EBF48BB32BB2ED66009CA4E0 /* FetchPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPostsUseCase.swift; sourceTree = "<group>"; };
-		EBF48BB52BB2EDFF009CA4E0 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
-		EBF48BBA2BB2F821009CA4E0 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		EBF48BC22BB301F8009CA4E0 /* DummyAuthRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthRequest.swift; sourceTree = "<group>"; };
-		EBF48BC42BB3020A009CA4E0 /* DummyAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthRepository.swift; sourceTree = "<group>"; };
-		EBF48BC62BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDummyAuthUseCase.swift; sourceTree = "<group>"; };
-		EBF48BC82BB3025D009CA4E0 /* DummyAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthViewModel.swift; sourceTree = "<group>"; };
-		EBF48BCC2BB33163009CA4E0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +114,7 @@
 		EB01ABC02B95C4E200506A40 /* XIBCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				EBAE41672BCEAB77005BC27C /* Helper */,
 				EB56ADAB2B97654D009C9509 /* Application */,
 				EBD723EC2BBDB46A006BD370 /* Presentation */,
 				EBD723ED2BBDB47C006BD370 /* Domain */,
@@ -194,7 +181,8 @@
 		EB4D6EBC2BCD60970066E54B /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				EB01E0EA2BCE71E8001E56ED /* FetchProductsUseCaseDelegate.swift */,
+				EBAE416B2BCEAC16005BC27C /* FetchProductsUseCaseProtocol.swift */,
+				EBAE416A2BCEABFC005BC27C /* Delegate */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -283,6 +271,22 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		EBAE41672BCEAB77005BC27C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EBAE41682BCEAB89005BC27C /* DependencyContainer.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		EBAE416A2BCEABFC005BC27C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				EB01E0EA2BCE71E8001E56ED /* FetchProductsUseCaseDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		EBD723EC2BBDB46A006BD370 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,10 +336,10 @@
 		EBD723F22BBDB5B7006BD370 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				EB3BF71E2BCE8A0800C2D305 /* LoggingProductRepository */,
 				EBD723FA2BBDE703006BD370 /* RemoteProductRepository */,
 				EBD723F92BBDE6F2006BD370 /* LocalProductRepository */,
 				EB3BF71B2BCE801500C2D305 /* ProductRepositoryFactory */,
+				EB3BF71E2BCE8A0800C2D305 /* LoggingProductRepository */,
 				EBDC429D2BBCAF9D007DFB4A /* ProductRepository.swift */,
 			);
 			path = Repositories;
@@ -369,65 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				EB67341A2BBAE52C0039492F /* Products */,
-				EBF48BA82BB2E42D009CA4E0 /* Login */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		EBF48BA82BB2E42D009CA4E0 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				EBF48BA92BB2E433009CA4E0 /* Model */,
-				EBF48BAA2BB2E446009CA4E0 /* Repository */,
-				EBF48BAB2BB2E45C009CA4E0 /* UseCase */,
-				EBF48BAC2BB2E462009CA4E0 /* ViewModel */,
-				EBF48BAD2BB2E468009CA4E0 /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		EBF48BA92BB2E433009CA4E0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EBF48BCC2BB33163009CA4E0 /* Post.swift */,
-				EBF48BBA2BB2F821009CA4E0 /* LoginResponse.swift */,
-				EBF48BC22BB301F8009CA4E0 /* DummyAuthRequest.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		EBF48BAA2BB2E446009CA4E0 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				EBF48BB02BB2E4A6009CA4E0 /* PostRepository.swift */,
-				EBF48BC42BB3020A009CA4E0 /* DummyAuthRepository.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		EBF48BAB2BB2E45C009CA4E0 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				EBF48BB32BB2ED66009CA4E0 /* FetchPostsUseCase.swift */,
-				EBF48BC62BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		EBF48BAC2BB2E462009CA4E0 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EBF48BB52BB2EDFF009CA4E0 /* PostsViewModel.swift */,
-				EBF48BC82BB3025D009CA4E0 /* DummyAuthViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		EBF48BAD2BB2E468009CA4E0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,15 +480,11 @@
 			files = (
 				EB67341E2BBAE56C0039492F /* Product.swift in Sources */,
 				EB3BF7202BCE8A2A00C2D305 /* LoggingRemoteProductRepositoryDecorator.swift in Sources */,
-				EBF48BC32BB301F8009CA4E0 /* DummyAuthRequest.swift in Sources */,
 				EB56ADA32B975556009C9509 /* CustomButtonView.swift in Sources */,
 				EBD723F62BBDC394006BD370 /* LocalProductRepository.swift in Sources */,
 				EBD724022BBDEC50006BD370 /* FetchProductsUseCase.swift in Sources */,
 				EB7A9F332BBB0EF7004ABA96 /* APIEndpoints.swift in Sources */,
-				EBF48BC92BB3025D009CA4E0 /* DummyAuthViewModel.swift in Sources */,
 				EBD723FC2BBDE73A006BD370 /* LocalProductRepositoryProtocol.swift in Sources */,
-				EBF48BB12BB2E4A6009CA4E0 /* PostRepository.swift in Sources */,
-				EBF48BCD2BB33163009CA4E0 /* Post.swift in Sources */,
 				EB01ABC62B95C4E200506A40 /* ViewController.swift in Sources */,
 				EB56AD9D2B9715D8009C9509 /* ColorHelper.swift in Sources */,
 				EB3BF71A2BCE7FF600C2D305 /* ProductRepositoryFactoryProtocol.swift in Sources */,
@@ -549,22 +492,19 @@
 				EB01E0EB2BCE71E8001E56ED /* FetchProductsUseCaseDelegate.swift in Sources */,
 				EB7A9F2C2BBAFC04004ABA96 /* ProductVM.swift in Sources */,
 				EBDC429E2BBCAF9D007DFB4A /* ProductRepository.swift in Sources */,
-				EBF48BB42BB2ED66009CA4E0 /* FetchPostsUseCase.swift in Sources */,
-				EBF48BC52BB3020A009CA4E0 /* DummyAuthRepository.swift in Sources */,
-				EBF48BBB2BB2F821009CA4E0 /* LoginResponse.swift in Sources */,
 				EB01ABD82B95C63F00506A40 /* CustomView.swift in Sources */,
 				EBDC42A22BBCBF22007DFB4A /* ProductRepositoryProtocol.swift in Sources */,
+				EBAE41692BCEAB89005BC27C /* DependencyContainer.swift in Sources */,
 				EB7A9F262BBAF3EA004ABA96 /* CoreDataStorageManager.swift in Sources */,
-				EBF48BC72BB3023A009CA4E0 /* FetchDummyAuthUseCase.swift in Sources */,
 				EB01ABC22B95C4E200506A40 /* AppDelegate.swift in Sources */,
 				EB57F2F72BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift in Sources */,
 				EB01ABC42B95C4E200506A40 /* SceneDelegate.swift in Sources */,
-				EBF48BB62BB2EDFF009CA4E0 /* PostsViewModel.swift in Sources */,
 				EBD723FF2BBDE780006BD370 /* RemoteProductRepositoryProtocol.swift in Sources */,
 				EB56ADA72B9758D0009C9509 /* CustomLogoView.swift in Sources */,
 				EB6734192BBAD4BD0039492F /* CoreDataStorage.xcdatamodeld in Sources */,
 				EB3BF7222BCE8B2400C2D305 /* LoggingLocalProductRepositoryDecorator.swift in Sources */,
 				EB56AD9F2B972E73009C9509 /* ImageHelper.swift in Sources */,
+				EBAE416C2BCEAC16005BC27C /* FetchProductsUseCaseProtocol.swift in Sources */,
 				EBD723F82BBDC3C2006BD370 /* RemoteProductRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

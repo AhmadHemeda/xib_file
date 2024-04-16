@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class FetchProductsUseCase {
+class FetchProductsUseCase: FetchProductsUseCaseProtocol {
     weak var delegate: FetchProductsUseCaseDelegate?
 
     private let repositoryFactory: ProductRepositoryFactoryProtocol = ProductRepositoryFactory()

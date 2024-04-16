@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum ImageHelper: String {
-    case cloudyLogo = "cloudyLogo"
-    
+    case cloudyLogo
+
     var image: UIImage {
         return UIImage(named: self.rawValue)!
     }

@@ -8,22 +8,22 @@
 import UIKit
 
 enum PaletteHelper: String {
-    case pastelYellow = "pastelYellow"
-    case paleLimeGreen = "paleLimeGreen"
-    case limeGreen = "limeGreen"
-    case forestGreen = "forestGreen"
-    case darkSlateBlue = "darkSlateBlue"
-    case turquoiseBlue = "turquoiseBlue"
-    case whiteSmoke = "whiteSmoke"
-    
+    case pastelYellow
+    case paleLimeGreen
+    case limeGreen
+    case forestGreen
+    case darkSlateBlue
+    case turquoiseBlue
+    case whiteSmoke
+
     var color: UIColor {
         return UIColor(named: self.rawValue)!
     }
 }
 
-//import UIKit
-//
-//enum PaletteHelper {
+// import UIKit
+
+// enum PaletteHelper {
 //    case pastelYellow
 //    case paleLimeGreen
 //    case limeGreen
@@ -42,11 +42,11 @@ enum PaletteHelper: String {
 //        }
 //    }
 //    
-//}
+// }
 
-//import UIKit
+// import UIKit
 //
-//enum PaletteHelper {
+// enum PaletteHelper {
 //    case pastelYellow, paleLimeGreen, limeGreen, forestGreen
 //    
 //    var color: UIColor {
@@ -56,9 +56,7 @@ enum PaletteHelper: String {
 //                                                   .forestGreen: "forestGreen"]
 //        return UIColor(named: colorNames[self] ?? "")!
 //    }
-//}
-
-
+// }
 /*
  
  
