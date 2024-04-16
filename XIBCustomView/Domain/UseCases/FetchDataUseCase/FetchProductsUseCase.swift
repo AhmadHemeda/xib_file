@@ -2,31 +2,29 @@ import Foundation
 import Combine
 
 class FetchProductsUseCase {
+    weak var delegate: FetchProductsUseCaseDelegate?
+
     private let productRepository: ProductRepositoryProtocol = ProductRepository()
     private var cancellables = Set<AnyCancellable>()
-    
-    @Published var productRemoteResponse: ProductAPIResponse?
-    @Published var productResponseLocal: [ProductEntity]?
-    @Published var error: Error?
-    
+
     func fetchProducts() {
         let endPoint = APIEndpoint.getProducts()
-        
+
         productRepository.fetchProducts(withEndpoint: endPoint)
             .sink { completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.error = error
+                    self.delegate?.fetchProductsFailed(withError: error)
                 }
             } receiveValue: { productResponse in
-                self.productRemoteResponse = productResponse
-                self.productRepository.saveProductsFromJSON(with: productResponse)
+                self.delegate?.productsFetchedRemotely(productResponse)
+//                self.productRepository.saveProductsFromJSON(with: productResponse)
             }
             .store(in: &cancellables)
     }
-    
+
     func fetchProductsLocally() {
         productRepository.fetchProductsLocally()
             .sink { completion in
@@ -34,10 +32,10 @@ class FetchProductsUseCase {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.error = error
+                    self.delegate?.fetchProductsFailed(withError: error)
                 }
             } receiveValue: { productEntities in
-                self.productResponseLocal = productEntities
+                self.delegate?.productsFetchedLocally(productEntities)
             }
             .store(in: &cancellables)
     }

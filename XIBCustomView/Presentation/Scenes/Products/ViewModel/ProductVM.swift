@@ -1,36 +1,36 @@
 import Foundation
 import Combine
 
-class ProductVM {
-    
+class ProductVM: FetchProductsUseCaseDelegate {
+
     @Published var productResponseRemote: ProductAPIResponse?
     @Published var productResponseLocal: [ProductEntity]?
-    @Published var product: Product?
     @Published var error: Error?
-    
+
     private var cancellables = Set<AnyCancellable>()
     private let fetchProductUseCase = FetchProductsUseCase()
-    
+
     init() {
-        setupSubscriptions()
+        fetchProductUseCase.delegate = self
     }
-    
-    private func setupSubscriptions() {
-        fetchProductUseCase.$productRemoteResponse
-            .assign(to: \.productResponseRemote, on: self)
-            .store(in: &cancellables)
-        
-        fetchProductUseCase.$error
-            .assign(to: \.error, on: self)
-            .store(in: &cancellables)
-        
-        fetchProductUseCase.$productResponseLocal
-            .assign(to: \.productResponseLocal, on: self)
-            .store(in: &cancellables)
+
+    func productsFetchedRemotely(_ products: ProductAPIResponse) {
+        productResponseRemote = products
     }
-    
+
+    func productsFetchedLocally(_ products: [ProductEntity]) {
+        productResponseLocal = products
+    }
+
+    func fetchProductsFailed(withError error: Error) {
+        self.error = error
+    }
+
     func fetchProducts() {
-//        fetchProductUseCase.fetchProducts()
+        fetchProductUseCase.fetchProducts()
+    }
+
+    func fetchProductsLocally() {
         fetchProductUseCase.fetchProductsLocally()
     }
 }
