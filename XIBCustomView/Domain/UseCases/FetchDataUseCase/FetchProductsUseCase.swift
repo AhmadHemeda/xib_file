@@ -4,13 +4,14 @@ import Combine
 class FetchProductsUseCase {
     weak var delegate: FetchProductsUseCaseDelegate?
 
-    private let productRepository: ProductRepositoryProtocol = ProductRepository()
+    private let repositoryFactory: ProductRepositoryFactoryProtocol = ProductRepositoryFactory()
     private var cancellables = Set<AnyCancellable>()
 
     func fetchProducts() {
         let endPoint = APIEndpoint.getProducts()
+        let repository = repositoryFactory.makeRemoteRepository()
 
-        productRepository.fetchProducts(withEndpoint: endPoint)
+        repository.fetchProducts(withEndpoint: endPoint)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -26,7 +27,9 @@ class FetchProductsUseCase {
     }
 
     func fetchProductsLocally() {
-        productRepository.fetchProductsLocally()
+        let repository = repositoryFactory.makeLocalRepository()
+
+        repository.fetchProductsLocally()
             .sink { completion in
                 switch completion {
                 case .finished:
