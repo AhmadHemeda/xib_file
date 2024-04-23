@@ -37,7 +37,7 @@ protocol ProductRepositoryProtocol: RemoteProductRepositoryProtocol, LocalProduc
         T,
         Error
     >
-    
+
     func fetchProductsLocally() -> AnyPublisher<
         [ProductEntity],
         Error
@@ -70,7 +70,7 @@ protocol ProductRepositoryProtocol: RemoteProductRepositoryProtocol, LocalProduc
         ProductEntity,
         Error
     >
-    
+
     func saveProductsFromJSON(
         with product: ProductAPIResponse
     )

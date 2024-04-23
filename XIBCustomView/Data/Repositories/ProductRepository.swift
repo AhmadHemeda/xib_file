@@ -65,7 +65,7 @@ class ProductRepository: ProductRepositoryProtocol {
     }
 
     // MARK: - LocalProductRepositoryProtocol
-    
+
     func fetchProductsLocally() -> AnyPublisher<
         [ProductEntity],
         Error

@@ -1,20 +1,14 @@
 import Foundation
 import Combine
 
-class ProductVM {
+class ProductVM: BaseViewModel {
 
     @Published var productResponseRemote: ProductAPIResponse?
     @Published var productResponseLocal: [ProductEntity]?
-    @Published var error: Error?
 
-    private var cancellables = Set<AnyCancellable>()
     private var fetchProductUseCase: FetchProductsUseCaseProtocol = DependencyContainer.shared.resolve()
 
-    init() {
-        setupSubscriptions()
-    }
-
-    private func setupSubscriptions() {
+    internal override func setupSubscriptions() {
         fetchProductUseCase.productsRemoteResponse = { [weak self] response in
             self?.productResponseRemote = response
         }
@@ -28,11 +22,11 @@ class ProductVM {
         }
     }
 
-    func fetchProducts() {
+    override func fetchProducts() {
         fetchProductUseCase.fetchProducts()
     }
 
-    func fetchProductsLocally() {
+    override func fetchProductsLocally() {
         fetchProductUseCase.fetchProductsLocally()
     }
 }

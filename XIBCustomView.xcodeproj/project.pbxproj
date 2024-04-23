@@ -24,6 +24,8 @@
 		EB56ADA92B9758E1009C9509 /* CustomLogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */; };
 		EB57F2F72BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB57F2F62BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift */; };
 		EB5EF9C02BD7EB7900F41BE5 /* FetchProductsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF9BF2BD7EB7900F41BE5 /* FetchProductsUseCaseProtocol.swift */; };
+		EB5EF9D22BD805D900F41BE5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF9D12BD805D900F41BE5 /* BaseViewController.swift */; };
+		EB5EF9D42BD80B4700F41BE5 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5EF9D32BD80B4700F41BE5 /* BaseViewModel.swift */; };
 		EB6734192BBAD4BD0039492F /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB6734172BBAD4BD0039492F /* CoreDataStorage.xcdatamodeld */; };
 		EB67341E2BBAE56C0039492F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67341D2BBAE56C0039492F /* Product.swift */; };
 		EB7A9F262BBAF3EA004ABA96 /* CoreDataStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A9F252BBAF3EA004ABA96 /* CoreDataStorageManager.swift */; };
@@ -58,6 +60,8 @@
 		EB56ADA82B9758E1009C9509 /* CustomLogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomLogoView.xib; sourceTree = "<group>"; };
 		EB57F2F62BBC399300E052F8 /* CoreDataStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManagerProtocol.swift; sourceTree = "<group>"; };
 		EB5EF9BF2BD7EB7900F41BE5 /* FetchProductsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProductsUseCaseProtocol.swift; sourceTree = "<group>"; };
+		EB5EF9D12BD805D900F41BE5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EB5EF9D32BD80B4700F41BE5 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		EB6734182BBAD4BD0039492F /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		EB67341D2BBAE56C0039492F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EB7A9F252BBAF3EA004ABA96 /* CoreDataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorageManager.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		EB01ABC02B95C4E200506A40 /* XIBCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				EB5EF9D02BD805C800F41BE5 /* Base */,
 				EBAE41672BCEAB77005BC27C /* Helper */,
 				EB56ADAB2B97654D009C9509 /* Application */,
 				EBD723EC2BBDB46A006BD370 /* Presentation */,
@@ -180,6 +185,15 @@
 				EB5EF9BF2BD7EB7900F41BE5 /* FetchProductsUseCaseProtocol.swift */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		EB5EF9D02BD805C800F41BE5 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EB5EF9D12BD805D900F41BE5 /* BaseViewController.swift */,
+				EB5EF9D32BD80B4700F41BE5 /* BaseViewModel.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		EB6734122BBAD3D00039492F /* Data */ = {
@@ -272,8 +286,8 @@
 		EBD723F02BBDB56B006BD370 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				EB5EF9BE2BD7EB5D00F41BE5 /* Interfaces */,
 				EBD724002BBDEC0C006BD370 /* FetchDataUseCase */,
+				EB5EF9BE2BD7EB5D00F41BE5 /* Interfaces */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -436,6 +450,8 @@
 				EBD723F62BBDC394006BD370 /* LocalProductRepository.swift in Sources */,
 				EBD724022BBDEC50006BD370 /* FetchProductsUseCase.swift in Sources */,
 				EB7A9F332BBB0EF7004ABA96 /* APIEndpoints.swift in Sources */,
+				EB5EF9D22BD805D900F41BE5 /* BaseViewController.swift in Sources */,
+				EB5EF9D42BD80B4700F41BE5 /* BaseViewModel.swift in Sources */,
 				EBD723FC2BBDE73A006BD370 /* LocalProductRepositoryProtocol.swift in Sources */,
 				EB01ABC62B95C4E200506A40 /* ViewController.swift in Sources */,
 				EB56AD9D2B9715D8009C9509 /* ColorHelper.swift in Sources */,

@@ -6,13 +6,13 @@ struct APIEndpoint {
         string: "https://dummyjson.com"
     )!
     private static let commonHeaders = ["Content-Type": "application/json"]
-    
+
     private static func makeURLPath(
         _ pathComponent: String
     ) -> String {
         return "/\(pathComponent)"
     }
-    
+
     private static func makeRequestBody(
         withTitle title: String
     ) -> Data? {

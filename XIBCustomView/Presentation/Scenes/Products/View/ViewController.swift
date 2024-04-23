@@ -2,11 +2,10 @@ import UIKit
 import Combine
 import UtilityLibrary
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
 
     // MARK: - Properties
 
-    private var cancellables = Set<AnyCancellable>()
     private var productVM: ProductVM = DependencyContainer.shared.resolve()
 
     // MARK: - View Lifecycle
@@ -20,7 +19,7 @@ class ViewController: UIViewController {
 
     // MARK: - Setup
 
-    private func setupBindings() {
+    internal override func setupBindings() {
         productVM.$productResponseRemote
             .sink { [weak self] productResponse in
                 self?.handleProductResponse(
@@ -64,7 +63,7 @@ class ViewController: UIViewController {
 
     // MARK: - Handling Responses
 
-    private func handleProductResponse(
+    internal override func handleProductResponse(
         _ productResponse: ProductAPIResponse?
     ) {
         if let product = productResponse?.products {
@@ -81,7 +80,7 @@ class ViewController: UIViewController {
         }
     }
 
-    private func handleProductResponseLocal(
+    internal override func handleProductResponseLocal(
         _ productResponse: [ProductEntity]?
     ) {
         if let productResponse = productResponse, !productResponse.isEmpty {
@@ -103,7 +102,7 @@ class ViewController: UIViewController {
         }
     }
 
-    private func handleError(
+    internal override func handleError(
         _ error: Error?
     ) {
         if let error = error {
