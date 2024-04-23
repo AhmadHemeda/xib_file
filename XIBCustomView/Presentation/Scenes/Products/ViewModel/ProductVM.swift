@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class ProductVM: FetchProductsUseCaseDelegate {
+class ProductVM {
 
     @Published var productResponseRemote: ProductAPIResponse?
     @Published var productResponseLocal: [ProductEntity]?
@@ -11,19 +11,21 @@ class ProductVM: FetchProductsUseCaseDelegate {
     private var fetchProductUseCase: FetchProductsUseCaseProtocol = DependencyContainer.shared.resolve()
 
     init() {
-        fetchProductUseCase.delegate = self
+        setupSubscriptions()
     }
 
-    func productsFetchedRemotely(_ products: ProductAPIResponse) {
-        productResponseRemote = products
-    }
+    private func setupSubscriptions() {
+        fetchProductUseCase.productsRemoteResponse = { [weak self] response in
+            self?.productResponseRemote = response
+        }
 
-    func productsFetchedLocally(_ products: [ProductEntity]) {
-        productResponseLocal = products
-    }
+        fetchProductUseCase.productsLocalResponse = { [weak self] response in
+            self?.productResponseLocal = response
+        }
 
-    func fetchProductsFailed(withError error: Error) {
-        self.error = error
+        fetchProductUseCase.error = { [weak self] error in
+            self?.error = error
+        }
     }
 
     func fetchProducts() {

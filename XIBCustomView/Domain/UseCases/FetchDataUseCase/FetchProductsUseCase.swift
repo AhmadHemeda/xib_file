@@ -2,27 +2,52 @@ import Foundation
 import Combine
 
 class FetchProductsUseCase: FetchProductsUseCaseProtocol {
-    weak var delegate: FetchProductsUseCaseDelegate?
 
     private let repository: ProductRepositoryProtocol = DependencyContainer.shared.resolve()
     private var cancellables = Set<AnyCancellable>()
 
+    var productsRemoteResponse: (
+        (
+            ProductAPIResponse?
+        ) -> Void
+    )?
+    var productsLocalResponse: (
+        (
+            [ProductEntity]?
+        ) -> Void
+    )?
+    var error: (
+        (
+            Error?
+        ) -> Void
+    )?
+
     func fetchProducts() {
         let endPoint = APIEndpoint.getProducts()
 
-        repository.fetchProducts(withEndpoint: endPoint)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self.delegate?.fetchProductsFailed(withError: error)
-                }
-            } receiveValue: { productResponse in
-                self.delegate?.productsFetchedRemotely(productResponse)
-//                self.productRepository.saveProductsFromJSON(with: productResponse)
+        repository.fetchProducts(
+            withEndpoint: endPoint
+        )
+        .sink { completion in
+            switch completion {
+            case .finished:
+                break
+            case .failure(
+                let error
+            ):
+                self.error?(
+                    error
+                )
             }
-            .store(in: &cancellables)
+        } receiveValue: { productResponse in
+            self.productsRemoteResponse?(
+                productResponse
+            )
+            //                self.repository.saveProductsFromJSON(with: productResponse)
+        }
+        .store(
+            in: &cancellables
+        )
     }
 
     func fetchProductsLocally() {
@@ -32,13 +57,21 @@ class FetchProductsUseCase: FetchProductsUseCaseProtocol {
                 switch completion {
                 case .finished:
                     break
-                case .failure(let error):
-                    self.delegate?.fetchProductsFailed(withError: error)
+                case .failure(
+                    let error
+                ):
+                    self.error?(
+                        error
+                    )
                 }
             } receiveValue: { productEntities in
-                self.delegate?.productsFetchedLocally(productEntities)
+                self.productsLocalResponse?(
+                    productEntities
+                )
             }
-            .store(in: &cancellables)
+            .store(
+                in: &cancellables
+            )
     }
 
 }
