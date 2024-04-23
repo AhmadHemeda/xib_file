@@ -8,7 +8,7 @@ class ProductVM: FetchProductsUseCaseDelegate {
     @Published var error: Error?
 
     private var cancellables = Set<AnyCancellable>()
-    private var fetchProductUseCase: FetchProductsUseCaseProtocol = FetchProductsUseCase()
+    private var fetchProductUseCase: FetchProductsUseCaseProtocol = DependencyContainer.shared.resolve()
 
     init() {
         fetchProductUseCase.delegate = self

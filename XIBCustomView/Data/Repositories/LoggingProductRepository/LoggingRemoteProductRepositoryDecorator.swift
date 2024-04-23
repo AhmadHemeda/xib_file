@@ -1,7 +1,7 @@
 import Foundation
 import UtilityLibrary
 import Combine
-
+/*
 class LoggingRemoteProductRepositoryDecorator: RemoteProductRepositoryProtocol {
     private let repository: RemoteProductRepositoryProtocol
 
@@ -38,3 +38,4 @@ class LoggingRemoteProductRepositoryDecorator: RemoteProductRepositoryProtocol {
         print("Logging remote request: \(endpoint)")
     }
 }
+*/

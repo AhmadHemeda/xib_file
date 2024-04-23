@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 import UtilityLibrary
-/*
+
 class ProductRepository: ProductRepositoryProtocol {
 
     private let remoteRepository: RemoteProductRepositoryProtocol = RemoteProductRepository()
@@ -55,4 +55,3 @@ class ProductRepository: ProductRepositoryProtocol {
         localRepository.saveProductsFromJSON(with: product)
     }
 }
-*/

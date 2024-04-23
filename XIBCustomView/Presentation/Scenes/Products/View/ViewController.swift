@@ -7,7 +7,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
 
     private var cancellables = Set<AnyCancellable>()
-    private var productVM = ProductVM()
+    private var productVM: ProductVM = DependencyContainer.shared.resolve()
 
     // MARK: - View Lifecycle
 
@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupBindings()
         fetchProductsFromRemote()
-//        fetchProductsFromLocal()
+        //        fetchProductsFromLocal()
     }
 
     // MARK: - Setup
@@ -23,21 +23,33 @@ class ViewController: UIViewController {
     private func setupBindings() {
         productVM.$productResponseRemote
             .sink { [weak self] productResponse in
-                self?.handleProductResponse(productResponse)
+                self?.handleProductResponse(
+                    productResponse
+                )
             }
-            .store(in: &cancellables)
+            .store(
+                in: &cancellables
+            )
 
         productVM.$error
             .sink { [weak self] error in
-                self?.handleError(error)
+                self?.handleError(
+                    error
+                )
             }
-            .store(in: &cancellables)
+            .store(
+                in: &cancellables
+            )
 
         productVM.$productResponseLocal
             .sink { [weak self] productResponse in
-                self?.handleProductResponseLocal(productResponse)
+                self?.handleProductResponseLocal(
+                    productResponse
+                )
             }
-            .store(in: &cancellables)
+            .store(
+                in: &cancellables
+            )
     }
 
     // MARK: - Fetch Products
@@ -52,32 +64,56 @@ class ViewController: UIViewController {
 
     // MARK: - Handling Responses
 
-    private func handleProductResponse(_ productResponse: ProductAPIResponse?) {
+    private func handleProductResponse(
+        _ productResponse: ProductAPIResponse?
+    ) {
         if let product = productResponse?.products {
-            print("Remote products response:")
-            print(product)
+            print(
+                "Remote products response:"
+            )
+            print(
+                product
+            )
         } else {
-            print("Product response is nil or empty")
+            print(
+                "Product response is nil or empty"
+            )
         }
     }
 
-    private func handleProductResponseLocal(_ productResponse: [ProductEntity]?) {
+    private func handleProductResponseLocal(
+        _ productResponse: [ProductEntity]?
+    ) {
         if let productResponse = productResponse, !productResponse.isEmpty {
-            print("Local products response:")
+            print(
+                "Local products response:"
+            )
             for product in productResponse {
-                print("Product title: \(product.title ?? "No title")")
-                print("Product description: \(product.productDescription ?? "No description")")
+                print(
+                    "Product title: \(product.title ?? "No title")"
+                )
+                print(
+                    "Product description: \(product.productDescription ?? "No description")"
+                )
             }
         } else {
-            print("Local products response is empty")
+            print(
+                "Local products response is empty"
+            )
         }
     }
 
-    private func handleError(_ error: Error?) {
+    private func handleError(
+        _ error: Error?
+    ) {
         if let error = error {
-            print("Error: \(error)")
+            print(
+                "Error: \(error)"
+            )
         } else {
-            print("No error")
+            print(
+                "No error"
+            )
         }
     }
 }

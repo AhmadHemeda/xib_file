@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-
+/*
 class LoggingLocalProductRepositoryDecorator: LocalProductRepositoryProtocol {
     private let repository: LocalProductRepositoryProtocol
 
@@ -42,3 +42,4 @@ class LoggingLocalProductRepositoryDecorator: LocalProductRepositoryProtocol {
         print("Logging local fetch products request")
     }
 }
+*/

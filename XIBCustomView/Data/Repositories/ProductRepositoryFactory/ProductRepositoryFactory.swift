@@ -1,5 +1,5 @@
 import Foundation
-
+/*
 class ProductRepositoryFactory: ProductRepositoryFactoryProtocol {
     func makeRemoteRepository() -> RemoteProductRepositoryProtocol {
         let remoteRepository = RemoteProductRepository()
@@ -11,3 +11,4 @@ class ProductRepositoryFactory: ProductRepositoryFactoryProtocol {
         return LoggingLocalProductRepositoryDecorator(repository: localRepository)
     }
 }
+*/

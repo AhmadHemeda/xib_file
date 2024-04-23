@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 import UtilityLibrary
-/*
+
 protocol ProductRepositoryProtocol: RemoteProductRepositoryProtocol, LocalProductRepositoryProtocol {
     func fetchProducts<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
     func getProduct<T: Decodable>(withEndpoint endpoint: BaseAPIRequest<T>) -> AnyPublisher<T, Error>
@@ -17,4 +17,3 @@ protocol ProductRepositoryProtocol: RemoteProductRepositoryProtocol, LocalProduc
 
     func saveProductsFromJSON(with product: ProductAPIResponse)
 }
-*/
